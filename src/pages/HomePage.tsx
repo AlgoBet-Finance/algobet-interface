@@ -3,6 +3,7 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { useActiveWeb3React } from 'hooks/useActiveWeb3React'
 import useConnectWalletCallback from 'hooks/useConnectWalletCallback'
+import Header from 'components/Header'
 
 const Home = () => {
   const { account } = useActiveWeb3React()
@@ -19,12 +20,10 @@ const Home = () => {
   }
   return (
     <div>
-      <button type='button' className='btn btn-connect-wallet' onClick={handleConnectWallet}>
-        {
-          account || 'CONNECT WALLET'
-        }
-      </button>
-
+      <Header />
+      <div className="hero">
+        a
+      </div>
     </div>
   )
 }
