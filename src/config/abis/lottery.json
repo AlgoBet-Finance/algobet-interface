@@ -1,0 +1,293 @@
+[
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "resultType",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "minter",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "SpinTicketResult",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "__Lottery_init",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "enum Lottery.PrizeType",
+        "name": "",
+        "type": "uint8"
+      }
+    ],
+    "name": "limitPrize",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "enum Lottery.PrizeType",
+        "name": "",
+        "type": "uint8"
+      }
+    ],
+    "name": "prize",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "prizePool",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "renounceOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "spinTicketEvent",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "stakingTicket",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_random",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_stakingTicket",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_prizePool",
+        "type": "address"
+      }
+    ],
+    "name": "updateConfig",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_amountPrizeOne",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amountPrizeTwo",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amountPrizeThree",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amountPrizeFour",
+        "type": "uint256"
+      }
+    ],
+    "name": "updatePrize",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_nftPrizeNumber",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_prizeOneNumber",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_prizeTwoNumber",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_prizeThreeNumber",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_prizeFourNumber",
+        "type": "uint256"
+      }
+    ],
+    "name": "updatePrizeConfig",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_nftPrize",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_prizeOne",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_prizeTwo",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_prizeThree",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_prizeFour",
+        "type": "uint256"
+      }
+    ],
+    "name": "updateWinRate",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "enum Lottery.PrizeType",
+        "name": "",
+        "type": "uint8"
+      }
+    ],
+    "name": "winRate",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]
