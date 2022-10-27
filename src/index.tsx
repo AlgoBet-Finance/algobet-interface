@@ -10,6 +10,10 @@ import TransactionsUpdater from 'store/transactions/TransactionsUpdater'
 import TokensUpdater from 'store/tokens/TokensUpdater'
 import App from 'pages/App'
 import BigNumberJS from 'bignumber.js'
+import 'swiper/swiper.scss' // core Swiper
+import 'swiper/modules/navigation/navigation.scss' // Navigation module
+import 'swiper/modules/pagination/pagination.scss'
+
 import './style/index.scss'
 import './fonts/Teko-Regular.ttf'
 
