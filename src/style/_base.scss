@@ -67,9 +67,84 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   font-family: "Inter";
-  color: #d2d2d2;
+  color: $text5;
+  font-size: 14px;
+  background: #0E0E0E;
 }
  
 .container {
-  max-width: 1150px;
+  max-width: 1200px;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 48px;
+}
+
+.title-h2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+
+.group-view-btn {
+  display: flex;
+}
+
+.btn-view {
+  border: 2px solid #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  color: $text5;
+  border-radius: 0;
+  background-color: transparent;
+  &:hover {
+    background-color: rgba(255,255,255,0.2);
+  }
+  a {
+    color: $text5;
+    text-decoration: none;
+  }
+}
+
+.btn-view-all {
+  width: 124px;
+  margin-right: 24px;
+}
+
+.btn-prev-next {
+  width: 48px;
+}
+
+.btn-prev {
+  margin-right: 12px;
+}
+
+.title-card {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.card-list::-webkit-scrollbar {
+  display: none !important;
+}
+/* Track */
+.card-list::-webkit-scrollbar-track {
+  display: none !important;
+}
+/* Handle */
+.card-list::-webkit-scrollbar-thumb {
+  display: none !important;
+}
+
+.card-list {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  display: flex;
 }

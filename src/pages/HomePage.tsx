@@ -7,6 +7,9 @@ import Header from 'components/Header'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Keyboard, Scrollbar, Navigation, Pagination } from 'swiper'
+import Footer from 'components/Footer'
+import News from 'components/News'
+import HotNFT from 'components/HotNFT'
 
 // Import Swiper styles
 
@@ -79,6 +82,9 @@ const Home = () => {
           </SwiperSlide>
         </Swiper>
       </div>
+      <HotNFT/>
+        <News/>
+      <Footer/>
     </div>
   )
 }
