@@ -66,33 +66,10 @@ body {
   min-height: 100vh;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  font-family: Teko-Regular;
+  font-family: "Inter";
   color: #d2d2d2;
 }
-
-/* A elements that don't have a class get default styles */
-a:not([class]) {
-  text-decoration-skip-ink: auto;
+ 
+.container {
+  max-width: 1150px;
 }
-
-/* Make images easier to work with */
-img,
-picture {
-  max-width: 100%;
-  display: block;
-  -webkit-user-drag: none;
-}
-
-/* Inherit fonts for inputs and buttons */
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
-
-
-#root {
-  isolation: isolate;
-}
-

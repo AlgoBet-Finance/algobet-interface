@@ -17,7 +17,7 @@ export default function Header() {
       connectWallet()
     }
   }
-   useEffect(() => {
+  useEffect(() => {
     function handleResize() {
       if (window.innerWidth > 700) {
         setScreenWidth(window.innerWidth)
@@ -67,35 +67,29 @@ export default function Header() {
   // }, [state])
   return (
     <div id="header" className="header">
-      <a href='./' className='header-logo'>
+      <a href="./" className="header-logo">
         <img className="" src="/images/logo.svg" alt="logo" />
-        <img className="logo-text" src="/images/ALGOBET.svg" alt="logo" />
       </a>
       <div className="nav desktop">
-        <a href="/#home" className="nav-item">
+        <a href="/#home" className="nav-item nav-active ">
           Home
         </a>
         <a href="/#what-is-algobet" className="nav-item">
-          What is Algobet
+          SPORTS
         </a>
         <a href="/#features" className="nav-item">
-          Features
+          CASINO
         </a>
         <a href="/#token" className="nav-item">
-          Token
+          PROMOTIONS
         </a>
         <a href="/#roadmap" className="nav-item">
-          Roadmap
+          NEWS
         </a>
-        <a href="/#partner" className="nav-item">
-          Partner
-        </a>
-        <button type='button' className='btn btn-connect-wallet' onClick={handleConnectWallet}>
-        {
-          account || 'CONNECT WALLET'
-        }
-      </button>
       </div>
+      <button type="button" className="btn btn-connect-wallet" onClick={handleConnectWallet}>
+        {account || 'CONNECT WALLET'}
+      </button>
       <div className="btn btn--close" role="presentation" onClick={() => handelShow()}>
         <svg width="32" height="32" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M6 10H42" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -103,7 +97,7 @@ export default function Header() {
           <path d="M6 38H42" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </div>
-      <ul className={state ? 'mobile active' : 'mobile '}  >
+      <ul className={state ? 'mobile active' : 'mobile '}>
         <li>
           <a href="/#home" className="nav-item">
             Home
