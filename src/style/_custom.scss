@@ -1,3 +1,27 @@
+.btn {
+  border: none;
+  background-color: transparent;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  &-cta {
+    background-color: #fff;
+    font-weight: 600;
+    font-size: 20px;
+    padding: 12px 34px;
+    color: #000;
+    img {
+      margin-right: 10px;
+    }
+    &:hover {
+      color: #000;
+      background-color: #fff;
+    }
+  }
+  &:hover {
+    background-color: #fff;
+  }
+}
 .btn-connect-wallet {
   font-weight: 600;
   font-size: 16px;

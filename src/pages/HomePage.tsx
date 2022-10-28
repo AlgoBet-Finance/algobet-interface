@@ -10,6 +10,9 @@ import { Keyboard, Scrollbar, Navigation, Pagination } from 'swiper'
 import Footer from 'components/Footer'
 import News from 'components/News'
 import HotNFT from 'components/HotNFT'
+import Match from 'components/Match'
+import MatchComing from 'components/MatchComing'
+import CTA from 'components/CTA'
 
 // Import Swiper styles
 
@@ -27,13 +30,13 @@ const Home = () => {
     }
   }
   return (
-    <div>
+    <div className="app">
       <Header />
       <div className="hero">
         <div className="hero-content">
           <div className="container">
             <img src="./images/hero/1.png" alt="" />
-            <div className="match">
+            <div className="hero-match">
               <h1>Brazil</h1>
               <h1>Cameroon</h1>
             </div>
@@ -82,9 +85,12 @@ const Home = () => {
           </SwiperSlide>
         </Swiper>
       </div>
-      <HotNFT/>
-        <News/>
-      <Footer/>
+      {/* <Match/>
+      <MatchComing/>
+      <CTA/> */}
+      <HotNFT />
+      <News />
+      <Footer />
     </div>
   )
 }

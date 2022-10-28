@@ -24,7 +24,103 @@
     height: 100%;
     padding-top: 100px;
   }
-  .swiper-button-prev,.swiper-button-next{
+  .swiper-button-prev,
+  .swiper-button-next {
     z-index: 3;
+    color: #fff;
+    background: #1a1b26;
+    opacity: 0.5;
+    border: solid 1px $main;
+    width: 48px;
+    height: 72px;
+    &::after {
+      font-size: 18px;
+    }
+  }
+  &-match{
+    
+  }
+}
+.match {
+  padding: 60px 0;
+  .card-list {
+  }
+  &-item {
+    background: #222224;
+    padding: 0;
+    margin-right: 24px;
+    .inner {
+      width: 276px;
+      height: 240px;
+      padding: 16px 24px;
+      display: flex;
+      gap: 24px;
+      flex-direction: column;
+      .flags {
+        display: flex;
+        align-items: center;
+        &-item {
+          width: 40px;
+          height: 40px;
+          background: #343436;
+          border: solid 2px #222224;
+          border-radius: 50%;
+          padding: 8px;
+          z-index: 2;
+          img {
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+          &:last-child {
+            margin-left: -5px;
+            z-index: 1;
+          }
+        }
+      }
+      .bottom {
+        display: flex;
+        gap: 8px;
+        width: 100%;
+        &-item {
+          flex: 1;
+          background: rgba(255, 255, 255, 0.08);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          text-align: center;
+          padding: 5px;
+          font-size: 16px;
+          line-height: 24px;
+          font-weight: 600;
+        }
+        .green {
+          border-color: $green;
+        }
+        .red {
+          border-color: $red;
+        }
+      }
+    }
+  }
+}
+.cta {
+  background: radial-gradient(53.19% 2992.19% at 50% 50%, #7b6901 0%, #161301 100%);
+  overflow: hidden;
+  height: 192px;
+  margin-bottom: 60px;
+  &-inner {
+    padding: 48px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h4{
+      width: 210px;
+    }
+  }
+  &-list{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
   }
 }
