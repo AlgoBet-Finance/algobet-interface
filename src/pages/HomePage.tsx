@@ -85,9 +85,9 @@ const Home = () => {
           </SwiperSlide>
         </Swiper>
       </div>
-      {/* <Match/>
+      <Match/>
       <MatchComing/>
-      <CTA/> */}
+      <CTA/>
       <HotNFT />
       <News />
       <Footer />
