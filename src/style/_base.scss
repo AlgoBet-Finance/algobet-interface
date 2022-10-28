@@ -120,7 +120,6 @@ h2 {
 
 .btn-view-all {
   width: 124px;
-  margin-right: 24px;
 }
 
 .btn-prev-next {
@@ -128,7 +127,11 @@ h2 {
 }
 
 .btn-prev {
-  margin-right: 12px;
+  margin-left: 24px;
+}
+
+.btn-next {
+  margin-left: 12px;
 }
 
 .title-card {

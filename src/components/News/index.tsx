@@ -20,7 +20,7 @@ export default function News() {
           <button id="scroll-left-news" type="button" className='btn-view btn-prev-next btn-prev'>
             <img src="/images/arrow-left.svg" alt="arrow-left" />
           </button>
-          <button id="scroll-right-news" type="button" className='btn-view btn-prev-next'>
+          <button id="scroll-right-news" type="button" className='btn-view btn-prev-next btn-next'>
           <img src="/images/arrow-right.svg" alt="arrow-right" />
           </button>
         </div>

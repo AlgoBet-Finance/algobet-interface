@@ -14,6 +14,7 @@ import Match from 'components/Match'
 import MatchComing from 'components/MatchComing'
 import CTA from 'components/CTA'
 import Featured from 'components/Featured'
+import LeaderBoard from 'components/LeaderBoard'
 
 // Import Swiper styles
 
@@ -147,6 +148,7 @@ const Home = () => {
       <CTA />
       <Featured />
       <HotNFT />
+      <LeaderBoard/>
       <News />
       <Footer />
     </div>
