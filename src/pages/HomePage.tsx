@@ -37,10 +37,40 @@ const Home = () => {
         <div className="hero-content">
           <div className="container">
             <div className="hero-inner">
-              <div className="count">1212</div>
+              <div className="countdown">
+                <div className="flags">
+                  <div className="flags-item">
+                    <img src="images/flags/en.svg" alt="eng" />
+                  </div>
+                  <div className="flags-item">
+                    <img src="images/flags/ee.svg" alt="eng" />
+                  </div>
+                </div>
+                <div className="time">
+                  <div className="time-item">
+                    <span className="font-w600">10</span>
+                    <span className="text-3 fs-14">day</span>
+                  </div>
+                  :
+                  <div className="time-item">
+                    <span className="font-w600">10</span>
+                    <span className="text-3 fs-14">hr</span>
+                  </div>
+                  :
+                  <div className="time-item">
+                    <span className="font-w600">10</span>
+                    <span className="text-3 fs-14">min</span>
+                  </div>
+                  :
+                  <div className="time-item">
+                    <span className="font-w600">10</span>
+                    <span className="text-3 fs-14">sec</span>
+                  </div>
+                </div>
+              </div>
               <div className="hero-match">
-                <img src="./images/hero/1.png" className='worldcup' alt="" />
-                <h1 className='font-w700'>Brazil</h1>
+                <img src="./images/hero/1.png" className="worldcup" alt="" />
+                <h1 className="font-w700">Brazil</h1>
                 <h1>Cameroon</h1>
                 <div className="bottom">
                   <div className="bottom-item">
