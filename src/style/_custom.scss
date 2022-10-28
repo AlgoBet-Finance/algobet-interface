@@ -18,15 +18,34 @@
       background-color: #fff;
     }
   }
-  &:hover {
-    background-color: #fff;
+  &-network {
+    background-color: rgba(34, 34, 36, 0.75);
+    font-weight: 600;
+    font-size: 16px;
+    padding: 12px 24px;
+    color: #fff;
+    img {
+      margin-right: 10px;
+    }
+    svg {
+      margin-left: 16px;
+    }
+    &:hover {
+      background-color: rgba(34, 34, 36, 0.9);
+    }
   }
-}
-.btn-connect-wallet {
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 24px;
-  color: #000000;
-  padding: 12px 24px;
-  background: #feda00;
+  // &:hover {
+  //   background-color: #fff;
+  // }
+  &-connect-wallet {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+    padding: 12px 24px;
+    background: #feda00;
+    &:hover {
+      background: #feda00;
+    }
+  }
 }

@@ -5,7 +5,11 @@
 *::after {
   box-sizing: border-box;
 }
-
+.tran {
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
 @font-face {
   font-family: 'Teko-Regular';
   src: local('Teko-Regular'), url('../fonts/Teko-Regular.ttf') format('truetype');
@@ -38,8 +42,7 @@ dd {
 }
 
 h1 {
-  text-transform: uppercase;
-  line-height: 115.8%;
+   line-height: 115.8%;
   font-weight: 600;
 }
 

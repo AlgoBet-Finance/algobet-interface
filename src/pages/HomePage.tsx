@@ -13,6 +13,7 @@ import HotNFT from 'components/HotNFT'
 import Match from 'components/Match'
 import MatchComing from 'components/MatchComing'
 import CTA from 'components/CTA'
+import Featured from 'components/Featured'
 
 // Import Swiper styles
 
@@ -35,10 +36,36 @@ const Home = () => {
       <div className="hero">
         <div className="hero-content">
           <div className="container">
-            <img src="./images/hero/1.png" alt="" />
-            <div className="hero-match">
-              <h1>Brazil</h1>
-              <h1>Cameroon</h1>
+            <div className="hero-inner">
+              <div className="count">1212</div>
+              <div className="hero-match">
+                <img src="./images/hero/1.png" className='worldcup' alt="" />
+                <h1 className='font-w700'>Brazil</h1>
+                <h1>Cameroon</h1>
+                <div className="bottom">
+                  <div className="bottom-item">
+                    <div className="left">
+                      <img src="./images/flags/en.svg" alt="" />
+                      Brazil
+                    </div>
+                    <span>2.50</span>
+                  </div>
+                  <div className="bottom-item">
+                    <div className="left">
+                      <img src="./images/flags/en.svg" alt="" />
+                      Brazil
+                    </div>
+                    <span>2.50</span>
+                  </div>
+                  <div className="bottom-item">
+                    <div className="left">
+                      <img src="./images/flags/en.svg" alt="" />
+                      Brazil
+                    </div>
+                    <span>2.50</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -85,9 +112,10 @@ const Home = () => {
           </SwiperSlide>
         </Swiper>
       </div>
-      <Match/>
-      <MatchComing/>
-      <CTA/>
+      <Match />
+      <MatchComing />
+      <CTA />
+      <Featured />
       <HotNFT />
       <News />
       <Footer />

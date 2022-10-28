@@ -37,8 +37,56 @@
       font-size: 18px;
     }
   }
-  &-match{
-    
+  .container {
+    height: 100%;
+  }
+  &-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+  &-match {
+    padding-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+      font-size: 64px;
+    }
+    .worldcup {
+      width: 200px;
+    }
+    .bottom {
+      display: flex;
+      margin-top: 30px;
+      gap: 16px;
+      &-item {
+        width: 176px;
+        height: 48px;
+        align-items: center;
+        display: flex;
+        background: #ffffff;
+        padding: 0 16px;
+        color: #222224;
+        justify-content: space-between;
+        .left {
+          display: flex;
+          align-items: center;
+
+          img {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 10px;
+          }
+        }
+        span{
+          font-weight: 600;
+        }
+      }
+    }
   }
 }
 .match {
@@ -107,20 +155,35 @@
   background: radial-gradient(53.19% 2992.19% at 50% 50%, #7b6901 0%, #161301 100%);
   overflow: hidden;
   height: 192px;
-  margin-bottom: 60px;
+
   &-inner {
     padding: 48px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    h4{
+    h4 {
       width: 210px;
     }
   }
-  &-list{
+  &-list {
     flex: 1;
     display: flex;
     justify-content: center;
     gap: 16px;
+  }
+}
+.featured {
+  padding: 60px 0;
+  &-list {
+    display: flex;
+    gap: 24px;
+  }
+  &-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    img {
+      margin-bottom: 8px;
+    }
   }
 }
