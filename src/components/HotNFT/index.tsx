@@ -22,13 +22,14 @@ export default function HotNFT() {
           <button id="scroll-left-nft" type="button" className="btn-view btn-prev-next btn-prev">
             <img src="/images/arrow-left.svg" alt="arrow-left" />
           </button>
-          <button id="scroll-right-nft" type="button" className="btn-view btn-prev-next">
+          <button id="scroll-right-nft" type="button" className="btn-view btn-prev-next btn-next">
             <img src="/images/arrow-right.svg" alt="arrow-right" />
           </button>
         </div>
       </div>
       <div className="card-list" id="scroll-bar-nft">
         <div className="card-nft">
+          <div className="color-blur" />
           <img src="/images/nft-img.png" alt="nft" />
           <div className="content-news">
             <div className="d-flex justify-content-between align-items-start">
@@ -38,10 +39,11 @@ export default function HotNFT() {
                 5.123,3
               </div>
             </div>
-            <div className='nft-avlb'>3 of 10 Available</div>
+            <div className="nft-avlb">3 of 10 Available</div>
           </div>
         </div>
         <div className="card-nft">
+          <div className="color-blur" />
           <img src="/images/nft-img.png" alt="nft" />
           <div className="content-news">
             <div className="d-flex justify-content-between align-items-start">
@@ -51,10 +53,11 @@ export default function HotNFT() {
                 5.123,3
               </div>
             </div>
-            <div className='nft-avlb'>3 of 10 Available</div>
+            <div className="nft-avlb">3 of 10 Available</div>
           </div>
         </div>
         <div className="card-nft">
+          <div className="color-blur" />
           <img src="/images/nft-img.png" alt="nft" />
           <div className="content-news">
             <div className="d-flex justify-content-between align-items-start">
@@ -64,10 +67,11 @@ export default function HotNFT() {
                 5.123,3
               </div>
             </div>
-            <div className='nft-avlb'>3 of 10 Available</div>
+            <div className="nft-avlb">3 of 10 Available</div>
           </div>
         </div>
         <div className="card-nft">
+          <div className="color-blur" />
           <img src="/images/nft-img.png" alt="nft" />
           <div className="content-news">
             <div className="d-flex justify-content-between align-items-start">
@@ -77,7 +81,7 @@ export default function HotNFT() {
                 5.123,3
               </div>
             </div>
-            <div className='nft-avlb'>3 of 10 Available</div>
+            <div className="nft-avlb">3 of 10 Available</div>
           </div>
         </div>
       </div>

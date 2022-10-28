@@ -10,10 +10,14 @@
   background: #222224;
   padding: 0;
   margin-right: 24px;
+  position: relative;
+  z-index: 2;
   img {
     width: 376px;
     height: 376px;
     object-fit: cover;
+    position: relative;
+    z-index: 2;
   }
   .title-card {
     max-width: 222px;
@@ -38,4 +42,16 @@
   font-size: 12px;
   line-height: 16px;
   margin-top: 8px;
+}
+
+.color-blur {
+  width: 194.94px;
+height: 194.94px;
+position: absolute;
+background: rgba(254, 218, 0, 0.2);
+filter: blur(60px);
+transform: rotate(-17.39deg);
+bottom: 27px;
+right: 27px;
+z-index: 1;
 }
