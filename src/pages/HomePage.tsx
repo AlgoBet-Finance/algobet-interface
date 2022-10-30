@@ -1,13 +1,9 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useEffect, useMemo, useState } from 'react'
-import { useActiveWeb3React } from 'hooks/useActiveWeb3React'
-import useConnectWalletCallback from 'hooks/useConnectWalletCallback'
-import Header from 'components/Header'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Keyboard, Scrollbar, Navigation, Pagination } from 'swiper'
-import Footer from 'components/Footer'
 import News from 'components/News'
 import HotNFT from 'components/HotNFT'
 import Match from 'components/Match'
@@ -19,21 +15,8 @@ import LeaderBoard from 'components/LeaderBoard'
 // Import Swiper styles
 
 const Home = () => {
-  const { account } = useActiveWeb3React()
-  const connectWallet = useConnectWalletCallback()
-
-  // useEffect(() => {
-  //   if (!account) connectWallet()
-  // }, [account, connectWallet])
-
-  const handleConnectWallet = () => {
-    if (!account) {
-      connectWallet()
-    }
-  }
   return (
-    <div className="app">
-      <Header />
+    <>
       <div className="hero">
         <div className="hero-content">
           <div className="container">
@@ -146,12 +129,11 @@ const Home = () => {
       <Match />
       <MatchComing />
       <CTA />
-      <Featured />
-      <HotNFT />
+      <Featured isOnHomePage />
+      <HotNFT isOnHomePage numberOnScreen={3} title="Hot NFT items" idScroll="scroll-bar-nft" idScrollLeft="scroll-left-nft" idScrollRight="scroll-right-nft"/>
       <LeaderBoard/>
       <News />
-      <Footer />
-    </div>
+    </>
   )
 }
 export default Home

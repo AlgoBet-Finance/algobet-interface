@@ -1,26 +1,53 @@
 import React, { useEffect, useState } from 'react'
 import $ from 'jquery'
 
-export default function Featured() {
-  const matchList = [1, 2, 3]
+export default function Featured({ isOnHomePage }: { isOnHomePage: any }) {
+  useEffect(() => {
+    const widthCard = $('.featured-item')[0].offsetWidth + 24
+    $('#scroll-left-promotion').on('click', () => {
+      $('#scroll-bar-promotion').animate(
+        { scrollLeft: ($('#scroll-bar-promotion').scrollLeft() || 0) - widthCard },
+        300
+      )
+    })
+    $('#scroll-right-promotion').on('click', () => {
+      $('#scroll-bar-promotion').animate(
+        { scrollLeft: ($('#scroll-bar-promotion').scrollLeft() || 0) + widthCard },
+        300
+      )
+    })
+  }, [])
+  const matchList = [1, 2, 3, 4]
   return (
     <div className="featured">
       <div className="container">
         <div className="title-h2">
-          <h2>Featured promotions</h2>
+          <h2>{isOnHomePage ? 'Featured promotions' : 'Hot promotions for you'}</h2>
           <div className="group-view-btn">
-            <button type="button" className="btn-view btn-view-all">
-              <a href="/">VIEW ALL</a>
-            </button>
+            {isOnHomePage ? (
+              <button type="button" className="btn-view btn-view-all">
+                <a href="/">VIEW ALL</a>
+              </button>
+            ) : (
+              <>
+                <button id="scroll-left-promotion" type="button" className="btn-view btn-prev-next btn-prev">
+                  <img src="/images/arrow-left.svg" alt="arrow-left" />
+                </button>
+                <button id="scroll-right-promotion" type="button" className="btn-view btn-prev-next btn-next">
+                  <img src="/images/arrow-right.svg" alt="arrow-right" />
+                </button>
+              </>
+            )}
           </div>
         </div>
-        <div className="featured-list">
+        <div className="row featured-list" id="scroll-bar-promotion">
           {matchList.map((item, key) => (
-            <div className="featured-item">
-              <img src="/images/pay/promotion-banner.png" alt="arrow-right" />
-
-              <p className='text-3'>End at 3:12 PM - Sep15, 2022</p>
-              <h4 className='fs-16 font-w600'>Lorem ipsum dolor sit amet</h4>
+            <div key={item} className="col-4 featured-item-div">
+              <div className="featured-item">
+                <img src="/images/pay/promotion-banner.png" alt="arrow-right" />
+                <p className="text-3">End at 3:12 PM - Sep15, 2022</p>
+                <h4 className="fs-16 font-w600">Lorem ipsum dolor sit amet</h4>
+              </div>
             </div>
           ))}
         </div>
