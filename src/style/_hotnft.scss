@@ -1,0 +1,61 @@
+.nft {
+  padding-top: 80px;
+  padding-bottom: 160px;
+}
+.card-list {
+  margin: 0 -12px;
+  .card-nft:last-child {
+    margin-right: 0;
+  }
+}
+
+.card-nft-div {
+  padding: 0 12px;
+}
+.card-nft {
+  background: #222224;
+  position: relative;
+  z-index: 2;
+  img {
+    width: 100%;
+    height: 376px;
+    object-fit: cover;
+    position: relative;
+    z-index: 2;
+  }
+  .title-card {
+    max-width: 222px;
+  }
+}
+
+.balance-nft {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+  img {
+    width: 24px;
+    height: 24px;
+    margin-right: 4px;
+  }
+}
+
+.nft-avlb {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  line-height: 16px;
+  margin-top: 8px;
+}
+
+.color-blur {
+  width: 194.94px;
+height: 194.94px;
+position: absolute;
+background: rgba(254, 218, 0, 0.2);
+filter: blur(60px);
+transform: rotate(-17.39deg);
+bottom: 27px;
+right: 27px;
+z-index: 1;
+}

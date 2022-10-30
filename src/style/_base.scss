@@ -5,7 +5,11 @@
 *::after {
   box-sizing: border-box;
 }
-
+.tran {
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
 @font-face {
   font-family: 'Teko-Regular';
   src: local('Teko-Regular'), url('../fonts/Teko-Regular.ttf') format('truetype');
@@ -38,8 +42,7 @@ dd {
 }
 
 h1 {
-  text-transform: uppercase;
-  line-height: 115.8%;
+   line-height: 115.8%;
   font-weight: 600;
 }
 
@@ -67,9 +70,123 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   font-family: "Inter";
-  color: #d2d2d2;
+  color: $text1;
+  font-size: 14px;
+  background: #0E0E0E;
 }
- 
+ .app{
+  overflow: hidden;
+ }
 .container {
-  max-width: 1150px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 48px;
+}
+
+.title-h2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+
+.group-view-btn {
+  display: flex;
+}
+
+.btn-view {
+  border: 2px solid #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  color: $text1;
+  border-radius: 0;
+  background-color: transparent;
+  &:hover {
+    background-color: rgba(255,255,255,0.2);
+  }
+  a {
+    color: $text1;
+    text-decoration: none;
+  }
+}
+
+.btn-view-all {
+  width: 124px;
+}
+
+.btn-prev-next {
+  width: 48px;
+}
+
+.btn-prev {
+  margin-left: 24px;
+}
+
+.btn-next {
+  margin-left: 12px;
+}
+
+.title-card {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.card-list::-webkit-scrollbar {
+  display: none !important;
+}
+/* Track */
+.card-list::-webkit-scrollbar-track {
+  display: none !important;
+}
+/* Handle */
+.card-list::-webkit-scrollbar-thumb {
+  display: none !important;
+}
+
+.card-list {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  display: flex;
+}
+@for $i from 10 through 50 {
+  .fs-#{$i} {
+    font-size: #{$i}px !important;
+  }
+}
+
+.font-w100 {
+  font-weight: 100 !important;
+}
+.font-w200 {
+  font-weight: 200 !important;
+}
+.font-w300 {
+  font-weight: 300 !important;
+}
+.font-w400 {
+  font-weight: 400 !important;
+}
+.font-w500 {
+  font-weight: 500 !important;
+}
+.font-w600 {
+  font-weight: 600 !important;
+}
+.font-w700 {
+  font-weight: 700 !important;
+}
+.font-w800 {
+  font-weight: 800 !important;
+}
+.font-w900 {
+  font-weight: 900 !important;
 }
