@@ -3,6 +3,7 @@ import { useActiveWeb3React } from 'hooks/useActiveWeb3React'
 import useConnectWalletCallback from 'hooks/useConnectWalletCallback'
 import { Link, NavLink } from 'react-router-dom'
 
+const LENGTH_TRUNCATE_ADDRESS = 15;
 export default function Header() {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth)
   const [state, setState] = useState(false)
@@ -19,6 +20,9 @@ export default function Header() {
     if (!account) {
       connectWallet()
     }
+  }
+  const truntcateAccount = (walletAddress: string) => {
+    return `${walletAddress.substring(0,LENGTH_TRUNCATE_ADDRESS)  }...`;
   }
   useEffect(() => {
     function handleResize() {
@@ -108,11 +112,7 @@ export default function Header() {
           </div>
         </div>
         <button type="button" className="btn btn-connect-wallet" onClick={handleConnectWallet}>
-          {account ? (
-            <div>{`${account.slice(0, 2)}...${account.slice(account.length - 3, account.length)}`}</div>
-          ) : (
-            <div>CONNECT WALLET</div>
-          )}
+          {account ? truntcateAccount(account) : 'CONNECT WALLET'}
         </button>
       </div>
       <div className="btn btn--close" role="presentation" onClick={() => handelShow()}>
