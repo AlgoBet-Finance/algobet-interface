@@ -174,12 +174,18 @@
     gap: 16px;
   }
 }
+
 .featured {
   padding-top: 80px;
-  padding-bottom: 160px;
+  padding-bottom: 80px;
   &-list {
     display: flex;
-    gap: 24px;
+    overflow-x: hidden;
+    flex-wrap: nowrap;
+    margin: 0 -12px;
+  }
+  &-item-div {
+    padding: 0 12px;
   }
   &-item {
     display: flex;
@@ -222,7 +228,7 @@
   }
   .time {
     display: flex;
-    margin-left:16px;
+    margin-left: 16px;
     gap: 5px;
     &-item {
       display: flex;
@@ -231,4 +237,45 @@
       align-items: center;
     }
   }
+}
+
+.featured-list-all {
+  row-gap: 24px;
+}
+
+.hero-inner-mp {
+  justify-content: center;
+  h1 {
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 88px;
+  }
+}
+
+.button-group-mp {
+  display: flex;
+  margin-top: 48px;
+  column-gap: 24px;
+}
+
+.btn-mp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 240px;
+  height: 56px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.btn-place-a-bid {
+  background: #feda00;
+  color: #0e0e0e;
+}
+
+.btn-view-artwork {
+  background-color: transparent;
+  border: 2px solid #FFFFFF;
+  color: #fff;
 }
