@@ -15,6 +15,7 @@
   // background: rgba(0, 8, 20, 0.9);
   z-index: 1000;
   backdrop-filter: blur(2px);
+  flex-wrap: wrap;
   @include mw-920 {
     padding: 1rem;
     text-align: center;
@@ -72,6 +73,10 @@
       &:hover {
         opacity: 1;
       }
+      @include mw-920 {
+       font-size: 14px;
+       padding: 12px;
+      }
     }
     .nav-active {
       font-weight: 600;
@@ -87,7 +92,8 @@
       display: block;
     }
   }
-  .btn-connect-wallet,.btn-network {
+  .btn-connect-wallet,
+  .btn-network {
     @include mw-768 {
       display: none;
     }
@@ -99,8 +105,8 @@
     list-style: none;
     padding: 0;
     background: rgba(0, 8, 20, 0.9);
-    left: -50%;
-    width: 50%;
+    left: -60%;
+    width: 60%;
     height: 100vh;
     padding-top: 3rem;
     z-index: 900;
@@ -117,6 +123,7 @@
         opacity: 0.7;
         font-size: 1.25rem;
         margin-right: auto;
+        text-decoration: none;
         &:hover {
           text-decoration: none;
           opacity: 1;
@@ -146,6 +153,7 @@
   display: flex;
   align-items: center;
   gap: 16px;
+  padding: 12px 0;
 }
 .modal {
   position: absolute;
@@ -163,21 +171,21 @@
     width: 776px;
     height: 388px;
     background: #0e0e0e;
-    @include mw-768{
+    @include mw-768 {
       width: 100%;
     }
   }
   &-header {
     border: none;
-    margin-bottom:20px;
+    margin-bottom: 20px;
     i {
       cursor: pointer;
     }
   }
   &-body {
     padding: 40px;
-    @include mw-768{
-     padding: 16px;
+    @include mw-768 {
+      padding: 16px;
     }
   }
 }
@@ -188,9 +196,8 @@
     gap: 24px;
     width: 100%;
     grid-template-columns: repeat(3, 1fr);
-    @include mw-768{
+    @include mw-768 {
       grid-template-columns: repeat(2, 1fr);
-
     }
   }
   &-item {
@@ -207,7 +214,7 @@
     img {
       margin-right: 10px;
     }
-    &:hover{
+    &:hover {
       border-color: $main;
       background: rgba(254, 218, 0, 0.08);
     }

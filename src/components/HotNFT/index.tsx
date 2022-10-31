@@ -36,7 +36,7 @@ export default function HotNFT({ isOnHomePage, numberOnScreen, title, idScroll, 
       </div>
       <div className="row card-list" id={idScroll}>
         {list.map((item) => (
-          <div className={`${numberOnScreen === 3 ? "col-4" : "col-3"} card-nft-div`}>
+          <div className={`${numberOnScreen === 3 ? "col-md-4" : "col-3"} card-nft-div`}>
             <div className={`card-nft ${idScroll}`}>
               <div className="color-blur" />
               <img src="/images/nft-img.png" alt="nft" />

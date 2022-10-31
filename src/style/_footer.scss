@@ -10,16 +10,27 @@ footer {
   align-items: center;
   padding: 24px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.nav-footer {
-  display: flex;
-  column-gap: 32px;
-  a {
-    color: $text1;
-    text-decoration: none; 
+  @include mw-768{
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  .nav-footer {
+    display: flex;
+    column-gap: 32px;
+    flex-wrap: wrap;
+    a {
+      color: $text1;
+      text-decoration: none; 
+      padding: 8px 0;
+      display: block;
+    }
+    @include mw-768{
+      
+    }
   }
 }
+
+
 
 .footer-s2 {
   padding: 32px 0;
