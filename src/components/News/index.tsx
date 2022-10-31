@@ -31,7 +31,7 @@ export default function News() {
       </div>
       <div className="row card-list" id="scroll-bar-news">
         {list.map((item) => (
-          <div className="col-4 card-news-div">
+          <div className="col-md-4 card-news-div">
             <div className="card-news">
               <img src="/images/news/news-example.png" alt="news" />
               <div className="content-news">

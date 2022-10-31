@@ -3,7 +3,7 @@
 import React, { useEffect, useMemo, useState } from 'react'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Keyboard, Scrollbar, Navigation, Pagination } from 'swiper'
+import { Keyboard, Scrollbar, Navigation, Pagination, Autoplay } from 'swiper'
 import News from 'components/News'
 import HotNFT from 'components/HotNFT'
 import Match from 'components/Match'
@@ -18,6 +18,46 @@ const Home = () => {
   return (
     <>
       <div className="hero">
+        <Swiper
+          slidesPerView={1}
+          centeredSlides={false}
+          slidesPerGroupSkip={1}
+          // grabCursor={true}
+          keyboard={{
+            enabled: true,
+          }}
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
+          }}
+          navigation
+          // pagination={{
+          //   clickable: true,
+          // }}
+          modules={[Keyboard, Scrollbar, Navigation, Pagination, Autoplay]}
+          className="mySwiper"
+        >
+          <SwiperSlide>
+            <div className="hero-item">
+              <img src="./images/hero/hero.png" alt="" />
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="hero-item">
+              <img src="./images/hero/hero.png" alt="" />
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="hero-item">
+              <img src="./images/hero/hero.png" alt="" />
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="hero-item">
+              <img src="./images/hero/hero.png" alt="" />
+            </div>
+          </SwiperSlide>
+        </Swiper>
         <div className="hero-content">
           <div className="container">
             <div className="hero-inner">
@@ -83,55 +123,20 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <Swiper
-          slidesPerView={1}
-          centeredSlides={false}
-          slidesPerGroupSkip={1}
-          // grabCursor={true}
-          keyboard={{
-            enabled: true,
-          }}
-          // breakpoints={{
-          //   769: {
-          //     slidesPerView: 2,
-          //     slidesPerGroup: 2,
-          //   },
-          // }}
-          navigation
-          // pagination={{
-          //   clickable: true,
-          // }}
-          modules={[Keyboard, Scrollbar, Navigation, Pagination]}
-          className="mySwiper"
-        >
-          <SwiperSlide>
-            <div className="hero-item">
-              <img src="./images/hero/hero.png" alt="" />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="hero-item">
-              <img src="./images/hero/hero.png" alt="" />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="hero-item">
-              <img src="./images/hero/hero.png" alt="" />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="hero-item">
-              <img src="./images/hero/hero.png" alt="" />
-            </div>
-          </SwiperSlide>
-        </Swiper>
       </div>
       <Match />
       <MatchComing />
       <CTA />
       <Featured isOnHomePage />
-      <HotNFT isOnHomePage numberOnScreen={3} title="Hot NFT items" idScroll="scroll-bar-nft" idScrollLeft="scroll-left-nft" idScrollRight="scroll-right-nft"/>
-      <LeaderBoard/>
+      <HotNFT
+        isOnHomePage
+        numberOnScreen={3}
+        title="Hot NFT items"
+        idScroll="scroll-bar-nft"
+        idScrollLeft="scroll-left-nft"
+        idScrollRight="scroll-right-nft"
+      />
+      <LeaderBoard />
       <News />
     </>
   )

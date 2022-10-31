@@ -6,7 +6,7 @@ export default function CTA() {
     <div className="cta">
       <div className="container">
         <div className="cta-inner">
-          <h4 className="fs-36 font-w600">Get token in second</h4>
+          <h4 className="  font-w600">Get token in second</h4>
           <div className="cta-list">
             <img src="/images/pay/1.png" alt=" " />
             <img src="/images/pay/2.png" alt=" " />

@@ -3,7 +3,7 @@ import $ from 'jquery'
 
 export default function Match() {
   useEffect(() => {
-    const widthCard = $('.card-nft')[0].offsetWidth + 24
+    const widthCard = $('.match-item')[0].offsetWidth + 24
     $('#scroll-left-match').on('click', () => {
       $('#scroll-match').animate({ scrollLeft: ($('#scroll-match').scrollLeft() || 0) - widthCard }, 276)
     })

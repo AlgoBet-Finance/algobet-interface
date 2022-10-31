@@ -6,6 +6,14 @@
     height: 100vh;
     min-height: 900px;
   }
+  @include mw-768 {
+    height: 450px;
+    min-height: 450px;
+    .swiper {
+      height: 450px;
+      min-height: 450px;
+    }
+  }
   &-item {
     height: 100%;
     img {
@@ -20,9 +28,14 @@
     top: 50%;
     left: 50%;
     z-index: 2;
-    width: 1200px;
+    width: 100%;
+    max-width: 1200px;
     height: 100%;
     padding-top: 100px;
+    @include mw-768 {
+      height: 450px;
+    }
+    padding-top: 60px;
   }
   .swiper-button-prev,
   .swiper-button-next {
@@ -35,6 +48,9 @@
     height: 72px;
     &::after {
       font-size: 18px;
+    }
+    @include mw-768 {
+      display: none;
     }
   }
   .container {
@@ -50,12 +66,20 @@
     padding-bottom: 100px;
     display: flex;
     flex-direction: column;
-
+    @include mw-768 {
+      padding-bottom: 16px;
+    }
     h1 {
       font-size: 64px;
+      @include mw-768 {
+        font-size: 45px;
+      }
     }
     .worldcup {
       width: 200px;
+      @include mw-768 {
+        width: 150px;
+      }
     }
     .bottom {
       display: flex;
@@ -70,6 +94,13 @@
         padding: 0 16px;
         color: #222224;
         justify-content: space-between;
+        @include mw-768 {
+          width: 33%;
+          height: 32px;
+          img {
+            display: none;
+          }
+        }
         .left {
           display: flex;
           align-items: center;
@@ -91,12 +122,22 @@
 }
 .match {
   padding: 60px 0;
+  @include mw-768{
+    padding: 30px 0;
+  }
   .card-list {
   }
   &-item {
     background: #222224;
     padding: 0;
     margin-right: 24px;
+    border: 1px solid;
+    border-color: transparent;
+    @extend .tran;
+    &:hover {
+      border-color: $main;
+      background: rgba(254, 218, 0, 0.08);
+    }
     .inner {
       width: 276px;
       height: 240px;
@@ -142,6 +183,11 @@
           font-size: 16px;
           line-height: 24px;
           font-weight: 600;
+          @extend .tran;
+          &:hover {
+            border-color: $main;
+            background: #000;
+          }
         }
         .green {
           border-color: $green;
@@ -156,15 +202,27 @@
 .cta {
   background: radial-gradient(53.19% 2992.19% at 50% 50%, #7b6901 0%, #161301 100%);
   overflow: hidden;
-  height: 192px;
+  height: fit-content;
 
   &-inner {
     padding: 48px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    @include mw-768 {
+      padding: 24px 0;
+      flex-direction: column;
+    }
     h4 {
       width: 210px;
+      font-size: 36px;
+      @include mw-768 {
+        width: 100%;
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 16px;
+      }
     }
   }
   &-list {
@@ -172,16 +230,22 @@
     display: flex;
     justify-content: center;
     gap: 16px;
+    flex-wrap: wrap;
+    @include mw-768{
+      img{
+        height: 50px;
+      }
+    }
   }
 }
 
 .featured {
   padding-top: 80px;
-  padding-bottom: 80px;
+  // padding-bottom: 80px;
   &-list {
-    display: flex;
-    overflow-x: hidden;
-    flex-wrap: nowrap;
+    // display: flex;
+    // overflow-x: hidden;
+    // flex-wrap: nowrap;
     margin: 0 -12px;
   }
   &-item-div {
@@ -191,7 +255,19 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
-    img {
+    text-decoration: none;
+    margin-bottom: 20px;
+    @extend .tran;
+    &:hover {
+      h4 {
+        @extend .tran;
+        color: $main;
+      }
+    }
+    h4 {
+      color: #fff;
+    }
+    .hover-img {
       margin-bottom: 8px;
     }
   }
@@ -276,6 +352,6 @@
 
 .btn-view-artwork {
   background-color: transparent;
-  border: 2px solid #FFFFFF;
+  border: 2px solid #ffffff;
   color: #fff;
 }

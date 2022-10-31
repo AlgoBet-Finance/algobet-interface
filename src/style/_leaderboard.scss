@@ -64,4 +64,7 @@
 
 .leaderboard {
   margin-bottom: 160px;
+  @include mw-768{
+    margin-bottom: 30px;
+  }
 }

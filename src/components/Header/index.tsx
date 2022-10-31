@@ -3,7 +3,7 @@ import { useActiveWeb3React } from 'hooks/useActiveWeb3React'
 import useConnectWalletCallback from 'hooks/useConnectWalletCallback'
 import { Link, NavLink } from 'react-router-dom'
 
-const LENGTH_TRUNCATE_ADDRESS = 15;
+const LENGTH_TRUNCATE_ADDRESS = 6
 export default function Header() {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth)
   const [state, setState] = useState(false)
@@ -22,7 +22,7 @@ export default function Header() {
     }
   }
   const truntcateAccount = (walletAddress: string) => {
-    return `${walletAddress.substring(0,LENGTH_TRUNCATE_ADDRESS)  }...`;
+    return `${walletAddress.substring(0, LENGTH_TRUNCATE_ADDRESS)}...${walletAddress.substring(38)}`
   }
   useEffect(() => {
     function handleResize() {
@@ -75,23 +75,39 @@ export default function Header() {
   return (
     <div id="header" className="header">
       <div className="header-left">
-        <Link to="/" className='header-logo' onClick={() => setPath('/')}>
+        <Link to="/" className="header-logo" onClick={() => setPath('/')}>
           <img className="" src="/images/logo.svg" alt="logo" />
         </Link>
         <div className="nav desktop">
           <Link to="/" className={`nav-item ${path === '/' ? 'nav-active' : ''}`} onClick={() => setPath('/')}>
             Home
           </Link>
-          <Link to="/algobet" className={`nav-item ${path === '/algobet' ? 'nav-active' : ''}`} onClick={() => setPath('/algobet')}>
+          <Link
+            to="/algobet"
+            className={`nav-item ${path === '/algobet' ? 'nav-active' : ''}`}
+            onClick={() => setPath('/algobet')}
+          >
             ALGOBET
           </Link>
-          <Link to="/marketplace" className={`nav-item ${path === '/marketplace' ? 'nav-active' : ''}`} onClick={() => setPath('/marketplace')}>
+          <Link
+            to="/marketplace"
+            className={`nav-item ${path === '/marketplace' ? 'nav-active' : ''}`}
+            onClick={() => setPath('/marketplace')}
+          >
             MARKETPLACE
           </Link>
-          <Link to="/promotions" className={`nav-item ${path === '/promotions' ? 'nav-active' : ''}`} onClick={() => setPath('/promotions')}>
+          <Link
+            to="/promotions"
+            className={`nav-item ${path === '/promotions' ? 'nav-active' : ''}`}
+            onClick={() => setPath('/promotions')}
+          >
             PROMOTIONS
           </Link>
-          <Link to="/news" className={`nav-item ${path === '/news' ? 'nav-active' : ''}`} onClick={() => setPath('/news')}>
+          <Link
+            to="/news"
+            className={`nav-item ${path === '/news' ? 'nav-active' : ''}`}
+            onClick={() => setPath('/news')}
+          >
             NEWS
           </Link>
         </div>
@@ -129,22 +145,38 @@ export default function Header() {
           </Link>
         </li>
         <li>
-          <Link to="/algobet" className={`nav-item ${path === '/algobet' ? 'nav-active' : ''}`} onClick={() => setPath('/algobet')}>
+          <Link
+            to="/algobet"
+            className={`nav-item ${path === '/algobet' ? 'nav-active' : ''}`}
+            onClick={() => setPath('/algobet')}
+          >
             ALGOBET
           </Link>
         </li>
         <li>
-          <Link to="/marketplace" className={`nav-item ${path === '/marketplace' ? 'nav-active' : ''}`} onClick={() => setPath('/marketplace')}>
+          <Link
+            to="/marketplace"
+            className={`nav-item ${path === '/marketplace' ? 'nav-active' : ''}`}
+            onClick={() => setPath('/marketplace')}
+          >
             MARKETPLACE
           </Link>
         </li>
         <li>
-          <Link to="/promotions" className={`nav-item ${path === '/promotions' ? 'nav-active' : ''}`} onClick={() => setPath('/promotions')}>
+          <Link
+            to="/promotions"
+            className={`nav-item ${path === '/promotions' ? 'nav-active' : ''}`}
+            onClick={() => setPath('/promotions')}
+          >
             PROMOTIONS
           </Link>
         </li>
         <li>
-          <Link to="/news" className={`nav-item ${path === '/news' ? 'nav-active' : ''}`} onClick={() => setPath('/news')}>
+          <Link
+            to="/news"
+            className={`nav-item ${path === '/news' ? 'nav-active' : ''}`}
+            onClick={() => setPath('/news')}
+          >
             NEWS
           </Link>
         </li>
