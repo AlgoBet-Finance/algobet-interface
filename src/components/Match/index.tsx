@@ -27,8 +27,8 @@ export default function Match() {
           </div>
         </div>
         <div className="card-list" id="scroll-match">
-          {matchList.map((item, key) => (
-            <div className="match-item">
+          {matchList.map((item, index) => (
+            <div className="match-item" >
               <div className="inner">
                 <div className="d-flex justify-content-between align-items-center">
                   <div className="d-flex flex-column">
