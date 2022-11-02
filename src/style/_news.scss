@@ -1,6 +1,6 @@
 .news {
   margin-bottom: 152px;
-  @include mw-768{
+  @include mw-768 {
     margin-bottom: 50px;
   }
 }
@@ -18,10 +18,17 @@
 .card-news {
   background: #222224;
   margin-right: 24px;
+  border: solid 1px;
+  border-color: transparent;
+  @extend .tran;
   img {
     width: 100%;
     height: 282px;
     object-fit: cover;
+  }
+  &:hover {
+    border-color: $main;
+    background: rgba(254, 218, 0, 0.08);
   }
 }
 
@@ -54,3 +61,108 @@
   position: relative;
 }
 
+.news-page {
+  margin-top: 170px;
+  .news-top {
+    text-align: center;
+    max-width: 776px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+    h1 {
+      font-weight: 500;
+      font-size: 64px;
+      line-height: 80px;
+      text-transform: uppercase;
+    }
+    p {
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 16px;
+      line-height: 24px;
+      margin: 32px 0;
+    }
+    .search {
+      width: 100%;
+      position: relative;
+      svg {
+        position: absolute;
+        left: 18px;
+        top: 18px;
+      }
+      input {
+        background-color: transparent;
+        height: 56px;
+        width: 100%;
+        background: #0e0e0e;
+        /* Light/Grayscale/400 */
+        color: #fff;
+        padding: 16px;
+        padding-left: 56px;
+        border: 1px solid #e8e8e8;
+        font-size: 16px;
+        &:focus {
+          box-shadow: none;
+          outline: none;
+        }
+      }
+    }
+  }
+}
+.news-title {
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 48px;
+  text-decoration: none;
+  color: #fff;
+  &:hover {
+    color: $main;
+  }
+}
+.news-page-detail {
+  .detail-bg {
+    margin-top: 90px;
+    background: rgba(34, 34, 36, 0.75);
+    height: 400px;
+    padding: 50px 0;
+    position: relative;
+    // overflow: hidden;
+    position: -1;
+    &::after {
+      content: "";
+      position: absolute;
+      width: 324.29px;
+      height: 324.29px;
+      left: -146px;
+      top: 240.93px;
+
+      background: rgba(254, 218, 0, 0.15);
+      filter: blur(150px);
+      transform: rotate(-15deg);
+    }
+    &::before {
+      position: absolute;
+      content: "";
+      width: 630.55px;
+      height: 630.55px;
+      left: 750px;
+      top: 42.2px;
+
+      background: rgba(254, 218, 0, 0.15);
+      filter: blur(150px);
+      transform: rotate(-15deg);
+    }
+  }
+}
+.breadcrumb {
+  &-item {
+    a {
+      color: #fff;
+    }
+  }
+}
+.news-detail {
+  max-width: 776px;
+  margin: 0 auto;
+  margin-top: -300px;
+  position: relative;
+  z-index: 2;
+}

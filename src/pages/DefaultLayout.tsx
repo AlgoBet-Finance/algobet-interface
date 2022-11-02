@@ -10,6 +10,8 @@ import Home from './HomePage'
 import Promotions from './PromotionPage'
 import MarketplacePage from './MarketplacePage'
 import ComingSoon from './ComingSoon'
+import NewsPage from './NewsPage'
+import NewsPageDetail from './NewsPageDetail'
 
 // Import Swiper styles
 
@@ -24,6 +26,8 @@ const DefaultLayout = () => {
           <Route path="/promotions" element={<Promotions />} />
           <Route path="/marketplace" element={<MarketplacePage />} />
           <Route path="/algobet" element={<ComingSoon />} />
+          <Route path="/news" element={<NewsPage />} />
+          <Route path="/news/:id" element={<NewsPageDetail />} />
 
           <Route path="*" element={<Navigate replace to="/" />} />
         </Routes>
