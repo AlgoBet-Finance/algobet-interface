@@ -3,12 +3,13 @@
   @include mw-768 {
     margin-bottom: 50px;
   }
-}
-.card-list {
-  margin: 0 -12px;
-  .card-news:last-child {
-    margin-right: 0;
+  .card-list {
+    margin: 0 -12px;
+    .card-news:last-child {
+      margin-right: 0;
+    }
   }
+  
 }
 
 .card-news-div {
