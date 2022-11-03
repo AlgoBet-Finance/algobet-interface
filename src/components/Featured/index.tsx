@@ -17,7 +17,7 @@ export default function Featured({ isOnHomePage }: { isOnHomePage: any }) {
       )
     })
   }, [])
-  const matchList = [1, 2, 3, 4]
+  const matchList = [1, 2, 3]
   return (
     <div className="featured">
       <div className="container">
@@ -42,12 +42,16 @@ export default function Featured({ isOnHomePage }: { isOnHomePage: any }) {
         </div>
         <div className="row featured-list" id="scroll-bar-promotion">
           {matchList.map((item, key) => (
-            <div key={item} className="col-4 featured-item-div">
-              <div className="featured-item">
-                <img src="/images/pay/promotion-banner.png" alt="arrow-right" />
+            <div key={item} className="col-md-4 featured-item-div">
+              <a className="featured-item" href='/'>
+                <div className="hover-img ">
+                  <figure>
+                    <img src="/images/pay/promotion-banner.png" alt="banner" />
+                  </figure>
+                </div>
                 <p className="text-3">End at 3:12 PM - Sep15, 2022</p>
                 <h4 className="fs-16 font-w600">Lorem ipsum dolor sit amet</h4>
-              </div>
+              </a>
             </div>
           ))}
         </div>

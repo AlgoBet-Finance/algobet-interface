@@ -1,13 +1,20 @@
 .nft {
   padding-top: 80px;
   padding-bottom: 160px;
-}
-.card-list {
-  margin: 0 -12px;
-  .card-nft:last-child {
-    margin-right: 0;
+  @include mw-768{
+    padding: 30px 0;
+  }
+  .card-list {
+    margin: 0 -12px;
+    .card-nft:last-child {
+      margin-right: 0;
+    }
+    @include mw-920{
+      // padding: 0 16px;
+    }
   }
 }
+
 
 .card-nft-div {
   padding: 0 12px;
