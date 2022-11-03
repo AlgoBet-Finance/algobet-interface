@@ -72,6 +72,9 @@ body {
   color: $text1;
   font-size: 14px;
   background: #0e0e0e;
+  background-image: url(/assets/bg-layer.png);
+  background-size: 100%;
+  background-repeat: repeat;
 }
 .app {
   overflow: hidden;
@@ -209,4 +212,10 @@ h2 {
 }
 .font-w900 {
   font-weight: 900 !important;
+}
+a {
+  text-decoration: none;
+  &:hover {
+    color: $main;
+  }
 }
