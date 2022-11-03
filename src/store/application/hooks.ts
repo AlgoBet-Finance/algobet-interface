@@ -6,7 +6,7 @@ import { updateETHBalance, updateTokenBalance } from 'store/application'
 import { ethersToBigNumberInstance } from 'utils/bigNumber'
 import BigNumberJS from 'bignumber.js'
 import { useArrayTrackingTokens } from 'store/tokens/hooks'
-import { useBep20Contracts } from 'hooks/useContract'
+// import { useBep20Contracts } from 'hooks/useContract'
 import { Contract } from 'ethers'
 
 /*********************************  ETH  *********************************/
@@ -18,21 +18,21 @@ export function useETHBalance(): BigNumberJS | undefined {
   return useMemo(() => ethBalance && new BigNumberJS(ethBalance), [ethBalance])
 }
 
-export function useGetETHBalanceAndSyncToStoreCallback() {
-  const { account, library } = useActiveWeb3React()
-  const dispatch = useAppDispatch()
+// export function useGetETHBalanceAndSyncToStoreCallback() {
+//   const { account, library } = useActiveWeb3React()
+//   const dispatch = useAppDispatch()
 
-  return useCallback(() => {
-    const getETHBalanceAndSyncToStore = async () => {
-      if (account && library) {
-        const signer = library.getSigner(account)
-        const weiBalance = await signer.getBalance()
-        dispatch(updateETHBalance({ ethBalance: ethersToBigNumberInstance(weiBalance) }))
-      }
-    }
-    getETHBalanceAndSyncToStore()
-  }, [account, dispatch, library])
-}
+//   return useCallback(() => {
+//     const getETHBalanceAndSyncToStore = async () => {
+//       if (account && library) {
+//         const signer = library.getSigner(account)
+//         const weiBalance = await signer.getBalance()
+//         dispatch(updateETHBalance({ ethBalance: ethersToBigNumberInstance(weiBalance) }))
+//       }
+//     }
+//     getETHBalanceAndSyncToStore()
+//   }, [account, dispatch, library])
+// }
 
 /*********************************  Token  *********************************/
 
@@ -71,27 +71,27 @@ export function useTrackingTokenBalance(address?: string): BigNumberJS | null | 
   return useMemo(() => trackingTokenBalance && new BigNumberJS(trackingTokenBalance), [trackingTokenBalance])
 }
 
-export function useGetTrackingTokenBalancesAndSyncToStoreCallback() {
-  const { account } = useActiveWeb3React()
-  const trackingTokens = useArrayTrackingTokens()
-  const trackingTokenAddresses = trackingTokens.map(({ address }) => address)
-  const contracts = useBep20Contracts(trackingTokenAddresses)
-  const dispatch = useAppDispatch()
+// export function useGetTrackingTokenBalancesAndSyncToStoreCallback() {
+//   const { account } = useActiveWeb3React()
+//   const trackingTokens = useArrayTrackingTokens()
+//   const trackingTokenAddresses = trackingTokens.map(({ address }) => address)
+//   const contracts = useBep20Contracts(trackingTokenAddresses)
+//   const dispatch = useAppDispatch()
 
-  return useCallback(() => {
-    const getTokenBalanceAndSyncToStore = async (address: string, contract: Contract | undefined) => {
-      if (account && contract) {
-        const balance = await contract.balanceOf(account)
-        dispatch(updateTokenBalance({ address, balance: ethersToBigNumberInstance(balance) }))
-      }
+//   return useCallback(() => {
+//     const getTokenBalanceAndSyncToStore = async (address: string, contract: Contract | undefined) => {
+//       if (account && contract) {
+//         const balance = await contract.balanceOf(account)
+//         dispatch(updateTokenBalance({ address, balance: ethersToBigNumberInstance(balance) }))
+//       }
 
-      return undefined
-    }
+//       return undefined
+//     }
 
-    const promises = contracts.map((contract, index) =>
-      getTokenBalanceAndSyncToStore(trackingTokenAddresses[index], contract)
-    )
+//     const promises = contracts.map((contract, index) =>
+//       getTokenBalanceAndSyncToStore(trackingTokenAddresses[index], contract)
+//     )
 
-    Promise.allSettled(promises)
-  }, [account, contracts, dispatch, trackingTokenAddresses])
-}
+//     Promise.allSettled(promises)
+//   }, [account, contracts, dispatch, trackingTokenAddresses])
+// }

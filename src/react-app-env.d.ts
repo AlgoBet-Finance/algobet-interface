@@ -2,6 +2,8 @@
 
 interface Window {
   ethereum?: {
+    networkVersion: any;
+    on(arg0: string, arg1: (accounts: any) => void): unknown;
     isMetaMask?: true;
     request?: (...args: any[]) => Promise<void>;
   };

@@ -1,37 +1,32 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import { useActiveWeb3React } from 'hooks/useActiveWeb3React'
 import useConnectWalletCallback from 'hooks/useConnectWalletCallback'
 import { Link, NavLink } from 'react-router-dom'
+import { ChainId } from '@dynamic-amm/sdk'
 
-const LENGTH_TRUNCATE_ADDRESS = 15;
-export default function Header() {
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth)
+const LENGTH_TRUNCATE_ADDRESS = 15
+
+export default function Header({
+  handleConnectWallet,
+  account,
+  chainId,
+  setChainId,
+  setupNetwork,
+}: {
+  handleConnectWallet: any
+  account: any
+  chainId: any
+  setChainId: any
+  setupNetwork: any
+}) {
   const [state, setState] = useState(false)
-  const { account } = useActiveWeb3React()
-  const connectWallet = useConnectWalletCallback()
   const [openPopup, setOpenPopup] = useState(false)
   const [path, setPath] = useState(window.location.pathname)
 
-  // useEffect(() => {
-  //   if (!account) connectWallet()
-  // }, [account, connectWallet])
-
-  const handleConnectWallet = () => {
-    if (!account) {
-      connectWallet()
-    }
-  }
   const truntcateAccount = (walletAddress: string) => {
-    return `${walletAddress.substring(0,LENGTH_TRUNCATE_ADDRESS)  }...`;
+    return `${walletAddress.substring(0, 2)}...${walletAddress.substring(walletAddress.length - 4, walletAddress.length)}`
   }
   useEffect(() => {
-    function handleResize() {
-      if (window.innerWidth > 700) {
-        setScreenWidth(window.innerWidth)
-      }
-    }
-    // window.addEventListener('resize', handleResize)
-
     const header = document.getElementById('header')
     const backToTop = document.getElementById('back-to-top')
     let sticky: number
@@ -62,36 +57,85 @@ export default function Header() {
   const handelShow = () => {
     setState(!state)
   }
-  // useEffect(() => {
-  //   if (!state) return
-  //   function handleClick() {
-  //     if (mobile.current) {
-  //       setState(false)
-  //     }
-  //   }
-  //   window.addEventListener('click', handleClick)
-  //   return () => window.removeEventListener('click', handleClick)
-  // }, [state])
+
+  const getNetwork = useCallback(() => {
+    if (chainId === ChainId.BSCMAINNET) {
+      return (
+        <>
+          <img className="" src="/images/network/Binance.png" alt="BNB" />
+          BNB Chain
+        </>
+      )
+    }
+    if (chainId === ChainId.AVAXMAINNET) {
+      return (
+        <>
+          <img className="" src="/images/network/ava.png" alt="BNB" />
+          Avalanche
+        </>
+      )
+    }
+    if (chainId === ChainId.MATIC) {
+      return (
+        <>
+          <img className="" src="/images/network/poly.png" alt="BNB" />
+          Polygon
+        </>
+      )
+    } 
+      return (
+        <>
+          <img className="" src="/images/network/Binance.png" alt="BNB" />
+          BNB Chain
+        </>
+      )
+    
+ 
+  }, [chainId])
+
+
+  const handleChangeNetwork = async (selectedId: any) => {
+    await setupNetwork(selectedId)
+    setChainId(selectedId)
+    setOpenPopup(false)
+  }
+
   return (
     <div id="header" className="header">
       <div className="header-left">
-        <Link to="/" className='header-logo' onClick={() => setPath('/')}>
+        <Link to="/" className="header-logo" onClick={() => setPath('/')}>
           <img className="" src="/images/logo.svg" alt="logo" />
         </Link>
         <div className="nav desktop">
           <Link to="/" className={`nav-item ${path === '/' ? 'nav-active' : ''}`} onClick={() => setPath('/')}>
             Home
           </Link>
-          <Link to="/algobet" className={`nav-item ${path === '/algobet' ? 'nav-active' : ''}`} onClick={() => setPath('/algobet')}>
+          <Link
+            to="/algobet"
+            className={`nav-item ${path === '/algobet' ? 'nav-active' : ''}`}
+            onClick={() => setPath('/algobet')}
+          >
             ALGOBET
           </Link>
-          <Link to="/marketplace" className={`nav-item ${path === '/marketplace' ? 'nav-active' : ''}`} onClick={() => setPath('/marketplace')}>
+          <Link
+            to="/marketplace"
+            className={`nav-item ${path === '/marketplace' ? 'nav-active' : ''}`}
+            onClick={() => setPath('/marketplace')}
+          >
             MARKETPLACE
           </Link>
-          <Link to="/promotions" className={`nav-item ${path === '/promotions' ? 'nav-active' : ''}`} onClick={() => setPath('/promotions')}>
+          <Link
+            to="/promotions"
+            className={`nav-item ${path === '/promotions' ? 'nav-active' : ''}`}
+            onClick={() => setPath('/promotions')}
+          >
             PROMOTIONS
           </Link>
-          <Link to="/news" className={`nav-item ${path === '/news' ? 'nav-active' : ''}`} onClick={() => setPath('/news')}>
+          <Link
+            to="/news"
+            className={`nav-item ${path === '/news' ? 'nav-active' : ''}`}
+            onClick={() => setPath('/news')}
+          >
             NEWS
           </Link>
         </div>
@@ -99,8 +143,7 @@ export default function Header() {
       <div className="gr-btn">
         <div className="btn btn-network" role="presentation" onClick={() => setOpenPopup(true)}>
           <div className="d-flex">
-            <img className="" src="/images/network/Binance.png" alt="BNB" />
-            BNB Chain
+            {getNetwork()}
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 fillRule="evenodd"
@@ -129,22 +172,38 @@ export default function Header() {
           </Link>
         </li>
         <li>
-          <Link to="/algobet" className={`nav-item ${path === '/algobet' ? 'nav-active' : ''}`} onClick={() => setPath('/algobet')}>
+          <Link
+            to="/algobet"
+            className={`nav-item ${path === '/algobet' ? 'nav-active' : ''}`}
+            onClick={() => setPath('/algobet')}
+          >
             ALGOBET
           </Link>
         </li>
         <li>
-          <Link to="/marketplace" className={`nav-item ${path === '/marketplace' ? 'nav-active' : ''}`} onClick={() => setPath('/marketplace')}>
+          <Link
+            to="/marketplace"
+            className={`nav-item ${path === '/marketplace' ? 'nav-active' : ''}`}
+            onClick={() => setPath('/marketplace')}
+          >
             MARKETPLACE
           </Link>
         </li>
         <li>
-          <Link to="/promotions" className={`nav-item ${path === '/promotions' ? 'nav-active' : ''}`} onClick={() => setPath('/promotions')}>
+          <Link
+            to="/promotions"
+            className={`nav-item ${path === '/promotions' ? 'nav-active' : ''}`}
+            onClick={() => setPath('/promotions')}
+          >
             PROMOTIONS
           </Link>
         </li>
         <li>
-          <Link to="/news" className={`nav-item ${path === '/news' ? 'nav-active' : ''}`} onClick={() => setPath('/news')}>
+          <Link
+            to="/news"
+            className={`nav-item ${path === '/news' ? 'nav-active' : ''}`}
+            onClick={() => setPath('/news')}
+          >
             NEWS
           </Link>
         </li>
@@ -166,23 +225,23 @@ export default function Header() {
               </i>
             </div>
             <div className="network-list">
-              <div className="network-item network-active">
+              <div className={`network-item ${chainId === ChainId.BSCMAINNET ? 'network-active' : ''}`} role="presentation" onClick={() => handleChangeNetwork(ChainId.BSCMAINNET)}>
                 <img className="" src="/images/network/Binance.png" alt="BNB" />
                 BNB Chain
               </div>
-              <div className="network-item">
+              <div className="network-item disable">
                 <img className="" src="/images/network/algo.png" alt="BNB" />
                 Algorand
               </div>
-              <div className="network-item">
+              <div className={`network-item ${chainId === ChainId.MATIC ? 'network-active' : ''}`} role="presentation" onClick={() => handleChangeNetwork(ChainId.MATIC)}>
                 <img className="" src="/images/network/poly.png" alt="BNB" />
                 Polygon
               </div>
-              <div className="network-item">
+              <div className={`network-item ${chainId === ChainId.AVAXMAINNET ? 'network-active' : ''}`} role="presentation" onClick={() => handleChangeNetwork(ChainId.AVAXMAINNET)}>
                 <img className="" src="/images/network/ava.png" alt="BNB" />
                 Avalanche
               </div>
-              <div className="network-item">
+              <div className="network-item disable">
                 <img className="" src="/images/network/sol.png" alt="BNB" />
                 Solana
               </div>
