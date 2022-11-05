@@ -10,7 +10,7 @@ footer {
   align-items: center;
   padding: 24px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  @include mw-768{
+  @include mw-768 {
     flex-direction: column;
     align-items: flex-end;
   }
@@ -20,21 +20,19 @@ footer {
     flex-wrap: wrap;
     a {
       color: $text1;
-      text-decoration: none; 
+      text-decoration: none;
       padding: 8px 0;
       display: block;
     }
-    @include mw-768{
-      
+    @include mw-768 {
     }
   }
 }
 
-
-
 .footer-s2 {
   padding: 32px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
 }
 
 .footer-s3 {
@@ -66,4 +64,20 @@ footer {
 
 .text-lang {
   width: 48px;
+}
+
+.footer-title {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 16px;
+}
+
+.icon-footer {
+  display: flex;
+  gap: 24px;
+  img {
+    width: 32px;
+    height: 32px;
+  }
 }

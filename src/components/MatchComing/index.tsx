@@ -40,7 +40,7 @@ export default function MatchComing() {
                   </div>
                   <div className="flags">
                     <div className="flags-item">
-                      <img src="images/flags/en.svg" alt="eng" />
+                      <img src="/images/flags/en.svg" alt="eng" />
                     </div>
                     <div className="flags-item">
                       <img src="images/flags/ee.svg" alt="eng" />

@@ -63,7 +63,7 @@
       left: -75%;
       z-index: 2;
       display: block;
-      content: "";
+      content: '';
       width: 50%;
       height: 100%;
       background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
@@ -91,5 +91,15 @@
 @keyframes shine {
   100% {
     left: 125%;
+  }
+}
+
+.no-matchs {
+  padding: 52px;
+  display: flex;
+  justify-content: center;
+  img {
+    width: 186px;
+    height: 156px;
   }
 }

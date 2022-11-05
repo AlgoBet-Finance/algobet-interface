@@ -39,26 +39,16 @@ const Home = () => {
         >
           <SwiperSlide>
             <div className="hero-item">
-              <img src="./images/hero/hero.png" alt="" />
+              <img src="./images/promotion1.jpg" alt="" />
             </div>
           </SwiperSlide>
           <SwiperSlide>
             <div className="hero-item">
-              <img src="./images/hero/hero.png" alt="" />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="hero-item">
-              <img src="./images/hero/hero.png" alt="" />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="hero-item">
-              <img src="./images/hero/hero.png" alt="" />
+              <img src="./images/promotion2.jpg" alt="" />
             </div>
           </SwiperSlide>
         </Swiper>
-        <div className="hero-content">
+        {/* <div className="hero-content">
           <div className="container">
             <div className="hero-inner">
               <div className="countdown">
@@ -122,7 +112,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
       <Match />
       <MatchComing />
