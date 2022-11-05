@@ -167,3 +167,48 @@
   position: relative;
   z-index: 2;
 }
+
+.market-page {
+  padding-top: 100px;
+  .detail-market{
+    padding: 30px 0;
+    .content{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      padding-left: 50px;
+      .d-flex{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 24px;
+      }
+    }
+    ul{
+      list-style: none;
+      padding: 0;
+      li{
+        margin-bottom: 16px;
+        display: flex;
+        span{
+          &:first-child{
+            width: 180px;
+            display: inline-block;
+          }
+          &:last-child{
+            width: calc(100% - 180px);
+          }
+        }
+      }
+    }
+    .bottom{
+      border-top: solid 1px rgba(255, 255, 255, 0.08);;
+      margin-top: auto;
+      padding-top: 24px;
+      display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+  }
+}

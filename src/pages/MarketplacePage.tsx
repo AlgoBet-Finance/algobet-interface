@@ -41,7 +41,7 @@ const MarketplacePage = () => {
       />
       <HotNFT
         isOnHomePage={false}
-        numberOnScreen={4}
+        numberOnScreen={3}
         title="Lorem ipsum"
         idScroll="scroll-bar-nft1"
         idScrollLeft="scroll-left-nft1"
@@ -49,7 +49,7 @@ const MarketplacePage = () => {
       />
       <HotNFT
         isOnHomePage={false}
-        numberOnScreen={4}
+        numberOnScreen={3}
         title="Lorem ipsum"
         idScroll="scroll-bar-nft2"
         idScrollLeft="scroll-left-nft2"
