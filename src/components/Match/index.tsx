@@ -17,16 +17,19 @@ export default function Match() {
       <div className="container">
         <div className="title-h2">
           <h2>Todays hot match</h2>
-          <div className="group-view-btn">
+          {/* <div className="group-view-btn">
             <button id="scroll-left-match" type="button" className="btn-view btn-prev-next btn-prev">
               <img src="/images/arrow-left.svg" alt="arrow-left" />
             </button>
             <button id="scroll-right-match" type="button" className="btn-view btn-prev-next btn-next">
               <img src="/images/arrow-right.svg" alt="arrow-right" />
             </button>
-          </div>
+          </div> */}
         </div>
-        <div className="card-list" id="scroll-match">
+        <div className='no-matchs'>
+          <img src="/images/empty-state.png" alt="empty-state"  />
+        </div>
+        {/* <div className="card-list" id="scroll-match">
           {matchList.map((item, index) => (
             <div className="match-item" >
               <div className="inner">
@@ -62,7 +65,7 @@ export default function Match() {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </div>
   )

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 export default function Localization() {
   return (
     <div className="select-lang">
-      <img src="images/flags/en.svg" alt="eng" />
+      <img src="/images/flags/en.svg" alt="eng" />
       <div className='text-lang'>Eng</div>
       <svg
         className="dd-icon"

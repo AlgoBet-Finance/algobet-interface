@@ -130,6 +130,11 @@ h2 {
   a {
     color: $text1;
     text-decoration: none;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   @include mw-768 {
     height: 32px;

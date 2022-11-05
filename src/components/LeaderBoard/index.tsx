@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { useEffect, useState } from 'react'
 
 export default function LeaderBoard() {
@@ -16,87 +17,26 @@ export default function LeaderBoard() {
           <table className="table-lb">
             <thead>
               <tr>
-                <th>MATCH</th>
-                <th>USER</th>
-                <th>TIME</th>
-                <th>ODDS</th>
-                <th>BET AMOUNT</th>
+                <th />
+                <th>COUNTRY TOKEN</th>
+                <th>LARGEST BET AMOUNT</th>
+                <th>TOTAL AMOUNT</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>LIV vs MU</td>
-                <td>Steve Roger</td>
-                <td>8:05 AM</td>
-                <td>2.30</td>
-                <td>
-                  <div className="d-flex justify-content-end align-items-center">
-                    4144
-                    <img src="/images/tether-icon.svg" alt="tether-icon" />
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>LIV vs MU</td>
-                <td>Steve Roger</td>
-                <td>8:05 AM</td>
-                <td>5.16</td>
-                <td>
-                  <div className="d-flex justify-content-end align-items-center">
-                    56743
-                    <img src="/images/agb-icon.svg" alt="tether-icon" />
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>LIV vs MU</td>
-                <td>Steve Roger</td>
-                <td>8:05 AM</td>
-                <td>3.13</td>
-                <td>
-                  <div className="d-flex justify-content-end align-items-center">
-                    44673
-                    <img src="/images/agb-icon.svg" alt="tether-icon" />
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>LIV vs MU</td>
-                <td>Steve Roger</td>
-                <td>8:05 AM</td>
-                <td>6.53</td>
-                <td>
-                  <div className="d-flex justify-content-end align-items-center">
-                    98097
-                    <img src="/images/tether-icon.svg" alt="tether-icon" />
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>LIV vs MU</td>
-                <td>Steve Roger</td>
-                <td>8:05 AM</td>
-                <td>2.30</td>
-                <td>
-                  <div className="d-flex justify-content-end align-items-center">
-                    7.65
-                    <img src="/images/agb-icon.svg" alt="tether-icon" />
-                  </div>
-                </td>
-              </tr>
-            </tbody>
           </table>
+          <div className='empty-info-token'>
+            <img src="/images/no-info-country-token.png" alt="no-info-country-token.png" />
+          </div>
+
         </div>
         <div className="what-is-country-token">
           <h4>What is Country Token?</h4>
           <div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat.
+          By the way you own Country Token, using it for betting to increase your asset. Every week, AlgoBet will announce top 10 Country Token with the largest total ownership.
           </div>
           <div className="d-flex justify-content-center">
             <button type="button" className="show-more-ct">
-              SHOW MORE
+            BUY COUNTRY TOKEN
             </button>
           </div>
         </div>
