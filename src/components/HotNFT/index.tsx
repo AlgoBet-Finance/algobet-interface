@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import $ from 'jquery'
+import { Link, NavLink } from 'react-router-dom'
 
 export default function HotNFT({
   isOnHomePage,
@@ -25,7 +26,7 @@ export default function HotNFT({
       $(`#${idScroll}`).animate({ scrollLeft: ($(`#${idScroll}`).scrollLeft() || 0) + widthCard }, 300)
     })
   }, [idScroll, idScrollLeft, idScrollRight])
-  const list = [1, 2, 3, 4]
+  const list = [{ id: 11 }, { id: 2 },{ id: 11 }, { id: 2 }]
 
   return (
     <div className="nft ">
@@ -48,22 +49,32 @@ export default function HotNFT({
           </div>
         </div>
         <div className="row card-list" id={idScroll}>
-          {list.map((item) => (
+          {list.map((item, index) => (
             <div className={`${numberOnScreen === 3 ? 'col-md-4' : 'col-3'} card-nft-div`}>
-              <div className={`card-nft ${idScroll}`}>
-                <div className="color-blur" />
-                <img src="/images/nft-img.png" alt="nft" />
-                <div className="content-news">
-                  <div className="d-flex justify-content-between align-items-start">
-                    <div className="title-card">Lorem ipsum dolor sit amet</div>
-                    <div className="balance-nft">
-                      <img src="/images/AGB-token.svg" alt="agb" />
-                      5.123,3
+              <Link to={{ pathname: `/marketplace/${item.id}` }}>
+                <div className={`card-nft ${idScroll}`}>
+                  <div className="color-blur" />
+                  <img src="/images/nft-img.png" alt="nft" />
+                  <div className="content-news">
+                    <div className="d-flex justify-content-between align-items-start">
+                      <div className="title-card">Lorem ipsum dolor sit amet</div>
+                      <div className="balance-nft">
+                        <img src="/images/AGB-token.svg" alt="agb" />
+                        5.123,3
+                      </div>
+                    </div>
+                    <div className="nft-avlb">3 of 10 Available</div>
+                    <div className="gr-btn">
+                      <button type="button" className="btn  btn-border">
+                        VIEW ARTWORK
+                      </button>
+                      <button type="button" className="btn btn-main">
+                        BUY ARTWORK
+                      </button>
                     </div>
                   </div>
-                  <div className="nft-avlb">3 of 10 Available</div>
                 </div>
-              </div>
+              </Link>
             </div>
           ))}
         </div>

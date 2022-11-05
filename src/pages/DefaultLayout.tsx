@@ -15,6 +15,7 @@ import MarketplacePage from './MarketplacePage'
 import ComingSoon from './ComingSoon'
 import NewsPage from './NewsPage'
 import NewsPageDetail from './NewsPageDetail'
+import MarketplaceDetail from './MarketplaceDetail';
 
 const ParamNetwork = {
   BSCMAINNET: {
@@ -160,6 +161,7 @@ const DefaultLayout = () => {
           <Route path="/" element={<Home />} />
           <Route path="/promotions" element={<Promotions />} />
           <Route path="/marketplace" element={<MarketplacePage />} />
+          <Route path="/marketplace/:id" element={<MarketplaceDetail />} />
           <Route path="/algobet" element={<ComingSoon />} />
           <Route path="/news" element={<NewsPage />} />
           <Route path="/news/:id" element={<NewsPageDetail />} />
