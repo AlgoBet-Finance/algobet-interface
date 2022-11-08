@@ -51,7 +51,7 @@
       .btn-minus {
         position: absolute;
         right: 16px;
-        top: 16px;
+        top: 12px;
         width: 32px;
         height: 32px;
         background: rgba(255, 255, 255, 0.08);
@@ -64,6 +64,16 @@
         &:hover {
           img {
             transform: rotate(90deg);
+          }
+        }
+      }
+      .btn-minus-active {
+        img {
+          transform: rotate(45deg);
+        }
+        &:hover {
+          img {
+            transform: rotate(135deg);
           }
         }
       }
@@ -91,6 +101,7 @@
         input {
           background: rgba(14, 14, 14, 0.75);
           box-shadow: none;
+          color: #fff;
         }
         .select {
           position: absolute;
@@ -103,13 +114,36 @@
             top: 40px;
             background: #222224;
             opacity: 0;
+            right: 0;
             @extend .tran;
             transform: translateY(-15px);
+            width: 140px;
             ul {
               list-style: none;
               padding: 0;
               display: flex;
               flex-direction: column;
+              li {
+                padding: 8px;
+                display: flex;
+                justify-content: space-between;
+                cursor: pointer;
+                .check{
+                  opacity: 0;
+                }
+                &:hover{
+                  background: rgba(254, 218, 0, 0.01);
+                }
+              }
+            }
+            &-active {
+              background: rgba(254, 218, 0, 0.08);
+              .check{
+                opacity: 1 !important;
+              }
+              &:hover{
+                background: rgba(254, 218, 0, 0.1) !important;
+              }
             }
           }
           &-active {
