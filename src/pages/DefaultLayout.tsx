@@ -8,6 +8,7 @@ import _ from 'lodash';
 
 import Header from 'components/Header'
 
+import BetWrapper from 'components/BetWrapper';
 import Footer from 'components/Footer'
 import Home from './HomePage'
 import Promotions from './PromotionPage'
@@ -17,6 +18,7 @@ import NewsPage from './NewsPage'
 import NewsPageDetail from './NewsPageDetail'
 import NewsPageCategory from './NewsPageCategory';
 import MarketplaceDetail from './MarketplaceDetail';
+import AlgoBet from './AlgoBet';
 
 const ParamNetwork = {
   BSCMAINNET: {
@@ -163,13 +165,14 @@ const DefaultLayout = () => {
           <Route path="/promotions" element={<Promotions />} />
           <Route path="/marketplace" element={<MarketplacePage />} />
           <Route path="/marketplace/:id" element={<MarketplaceDetail />} />
-          <Route path="/algobet" element={<ComingSoon />} />
+          <Route path="/algobet" element={<AlgoBet />} />
           <Route path="/news" element={<NewsPage />} />
           <Route path="/news/:id" element={<NewsPageDetail />} />
           <Route path="/news/category/:id" element={<NewsPageCategory />} />
 
           <Route path="*" element={<Navigate replace to="/" />} />
         </Routes>
+        <BetWrapper/>
         <Footer />
       </BrowserRouter>
     </div>
