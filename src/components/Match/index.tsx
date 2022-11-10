@@ -76,8 +76,12 @@ export default function Match({ matchList }: any) {
                         <div className="bottom-item green" onClick={() => betHandle(item.id)} role="presentation">
                           1.12
                         </div>
-                        <div className="bottom-item ">1.12</div>
-                        <div className="bottom-item red">1.12</div>
+                        <div className="bottom-item" onClick={() => betHandle(item.id)} role="presentation">
+                          1.12
+                        </div>
+                        <div className="bottom-item red" onClick={() => betHandle(item.id)} role="presentation">
+                          1.12
+                        </div>
                       </div>
                     </div>
                   </div>

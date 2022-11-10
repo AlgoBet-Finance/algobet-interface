@@ -12,7 +12,7 @@ export interface BetSlipState {
 
 export const initialState: BetSlipState = {
   count: 0,
-  listBet: [{ id: 1 }, { id: 2 }],
+  listBet: [],
 }
 
 const betSlice = createSlice({

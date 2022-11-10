@@ -7,7 +7,9 @@ export default function BetWrapper() {
 
   const betSlip = useBetSelector()
   console.log(betSlip, 'betSlip')
-
+  if (betSlip.listBet.length === 0) {
+    return <></>
+  }
   return (
     <div className="betWrapper">
       <div className="item">
@@ -28,7 +30,7 @@ export default function BetWrapper() {
                 {betSlip.listBet.length > 0 ? (
                   <>
                     {betSlip.listBet.map((item, index) => (
-                      <Item data={item}/>
+                      <Item data={item} />
                     ))}
                   </>
                 ) : (
