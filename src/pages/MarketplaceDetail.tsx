@@ -23,30 +23,30 @@ const MarketplaceDetail = () => {
             <div className="col-md-6">
               <div className="hover-img ">
                 <figure>
-                  <img src="/images/nft-img.png" alt="nft" />
+                  <img src="/images/nft-collection/20_.jpg" alt="nft" />
                 </figure>
               </div>
             </div>
             <div className="col-md-6">
               <div className="content">
                 <div className="d-flex">
-                  <h2>NFT name #00123</h2>
+                  <h2>Star Ticket 20% name #001</h2>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua.
+                    When using Star Ticket to bet a match, the user can increase the profit by the percentage that
+                    Ticket brings
                   </p>
                   <ul>
                     <li>
-                      <span className="text-3 font-w600">editions</span>
-                      <span>10</span>
+                      <span className="text-3 font-w600">Editions</span>
+                      <span>100</span>
                     </li>
                     <li>
                       <span className="text-3 font-w600">Collection</span>
-                      <span>Lorem ipsum dolor</span>
+                      <span>NFTs Star Ticket</span>
                     </li>
                     <li>
                       <span className="text-3 font-w600">Series</span>
-                      <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
+                      <span>#001</span>
                     </li>
                     <li>
                       <span className="text-3 font-w600">Blockchain</span>
@@ -59,7 +59,7 @@ const MarketplaceDetail = () => {
                 </div>
                 <div className="bottom">
                   <span className="text-2 fs-12">3 available for sale</span>
-                  <h3>5.123,3 AGB </h3>
+                  <h3>300 AGB </h3>
                   <div className="btn btn-main">BUY NOW</div>
                 </div>
               </div>
