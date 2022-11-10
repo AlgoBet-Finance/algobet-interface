@@ -17,7 +17,7 @@ import LeaderBoard from 'components/LeaderBoard'
 
 const AlgoBet = () => {
   const [tab, setTab] = useState('All Matches')
-  const matchList = [1, 2, 3, 4, 5, 6]
+  const matchList = [{ id: 3 }, { id: 4 }, { id: 5 }]
 
   return (
     <div className="algoBet">
@@ -208,8 +208,7 @@ const AlgoBet = () => {
                   <td>
                     <div>
                       <span className="text-odd">1:</span>
-                      &nbsp;
-                      2.47
+                      &nbsp; 2.47
                     </div>
                   </td>
                   <td>
@@ -218,13 +217,13 @@ const AlgoBet = () => {
                   <td>
                     <div>
                       1000
-                      <img className='icon-money' src="/images/tether-icon.svg" alt="tether" />
+                      <img className="icon-money" src="/images/tether-icon.svg" alt="tether" />
                     </div>
                   </td>
                   <td>
                     <div>
                       2470
-                      <img className='icon-money' src="/images/tether-icon.svg" alt="tether" />
+                      <img className="icon-money" src="/images/tether-icon.svg" alt="tether" />
                     </div>
                   </td>
                 </tr>
@@ -255,8 +254,7 @@ const AlgoBet = () => {
                   <td>
                     <div>
                       <span className="text-odd">1:</span>
-                      &nbsp;
-                      2.47
+                      &nbsp; 2.47
                     </div>
                   </td>
                   <td>
@@ -265,13 +263,13 @@ const AlgoBet = () => {
                   <td>
                     <div>
                       1000
-                      <img className='icon-money' src="/images/tether-icon.svg" alt="tether" />
+                      <img className="icon-money" src="/images/tether-icon.svg" alt="tether" />
                     </div>
                   </td>
                   <td>
                     <div>
                       -
-                      <img className='icon-money' src="/images/tether-icon.svg" alt="tether" />
+                      <img className="icon-money" src="/images/tether-icon.svg" alt="tether" />
                     </div>
                   </td>
                 </tr>

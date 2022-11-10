@@ -8,7 +8,7 @@
   box-sizing: border-box;
   padding: 1.25rem 0px;
   margin: 0px;
-  height: 95%;
+  height: 90%;
   line-height: 1.25rem;
   z-index: 100;
   display: flex;
@@ -78,14 +78,18 @@
         }
       }
     }
+    &-inner {
+      max-height: calc(100% - 1.25rem);
+      overflow: scroll;
+      padding: 16px;
+    }
     &-content {
       transition: all 0.25s ease 0s;
       flex: 1 1 auto;
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      padding: 16px;
-      padding-bottom: 50px;
+      padding-bottom: 40px;
       .item-list {
         list-style: none;
         padding: 0;
@@ -128,20 +132,20 @@
                 display: flex;
                 justify-content: space-between;
                 cursor: pointer;
-                .check{
+                .check {
                   opacity: 0;
                 }
-                &:hover{
+                &:hover {
                   background: rgba(254, 218, 0, 0.01);
                 }
               }
             }
             &-active {
               background: rgba(254, 218, 0, 0.08);
-              .check{
+              .check {
                 opacity: 1 !important;
               }
-              &:hover{
+              &:hover {
                 background: rgba(254, 218, 0, 0.1) !important;
               }
             }

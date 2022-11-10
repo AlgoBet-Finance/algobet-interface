@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import $ from 'jquery'
 
+import { useAddBetCallback } from 'store/betSlip/hooks'
+
 export default function Match({ matchList }: any) {
   useEffect(() => {
     const widthCard = $('.match-item')[0].offsetWidth + 24
@@ -12,7 +14,11 @@ export default function Match({ matchList }: any) {
     })
   }, [])
   // const matchList = [1, 2, 3, 4, 5, 6]
-  console.log(matchList, 'matchList')
+  const addBet = useAddBetCallback()
+  const betHandle = (item: number) => {
+    addBet(item)
+  }
+  console.log(matchList)
   return (
     <div className="match">
       <div className="container">
@@ -39,7 +45,7 @@ export default function Match({ matchList }: any) {
           <div className="card-list" id="scroll-match">
             {matchList.length > 0 ? (
               <>
-                {matchList.map(() => (
+                {matchList.map((item: any) => (
                   <div className="match-item">
                     <div className="inner">
                       <div className="d-flex justify-content-between align-items-center">
@@ -67,7 +73,9 @@ export default function Match({ matchList }: any) {
                         </div>
                       </div>
                       <div className="bottom">
-                        <div className="bottom-item green">1.12</div>
+                        <div className="bottom-item green" onClick={() => betHandle(item.id)} role="presentation">
+                          1.12
+                        </div>
                         <div className="bottom-item ">1.12</div>
                         <div className="bottom-item red">1.12</div>
                       </div>
