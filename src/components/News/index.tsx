@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import $ from 'jquery'
+import { get } from 'services/api'
 
 export default function News() {
   useEffect(() => {
@@ -12,7 +13,28 @@ export default function News() {
     })
   }, [])
   const list = [1, 2, 3, 4]
-
+  const [listNews, setListNews] = useState(list)
+  useEffect(() => {
+    get("news", {
+      limit: 20,
+      page: 1,
+    }).then((response) => {
+      console.log(response,"sss")
+       
+    })
+  }, [])
+  useEffect(() => {
+    // fetch(`http://api.algobet-sports.com/api/news?limit=2&page=1`)
+    //   .then((response) => {
+    //     return response.json();
+    //   })
+    //   .then((data) => {
+    //  console.log(data)
+    //   })
+    //   .catch((err) => {
+    //     console.log("Error Reading data 212" + err);
+    //   });
+  }, []);
   return (
     <div className="news ">
       <div className="container">
@@ -31,7 +53,7 @@ export default function News() {
           </div>
         </div>
         <div className="row card-list" id="scroll-bar-news">
-          {list.map((item) => (
+          {listNews.map((item) => (
             <div className="col-md-4 card-news-div">
               <div className="card-news">
                 <img src="/images/news/news-example.png" alt="news" />
