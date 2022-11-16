@@ -15,8 +15,8 @@ export default function News() {
   const list = [1, 2, 3, 4]
   const [listNews, setListNews] = useState(list)
   useEffect(() => {
-    get("news", {
-      limit: 20,
+    get("http://api.algobet-sports.com/api/news", {
+      limit: 5,
       page: 1,
     }).then((response) => {
       console.log(response,"sss")
