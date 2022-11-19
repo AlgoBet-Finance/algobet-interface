@@ -21,20 +21,20 @@
 .card-nft {
   background: #222224;
   position: relative;
-    color: #fff;
-    z-index: 2;
+  color: #fff;
+  z-index: 2;
   img {
     width: 100%;
     height: 376px;
-    object-fit: cover;
+    object-fit: contain;
     position: relative;
     z-index: 2;
   }
   .title-card {
     max-width: 222px;
   }
-  .gr-btn{
-    .btn{
+  .gr-btn {
+    .btn {
       width: 50%;
       font-size: 14px;
       justify-content: center;

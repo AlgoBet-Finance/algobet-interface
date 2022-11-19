@@ -9,7 +9,6 @@
       margin-right: 0;
     }
   }
-  
 }
 
 .card-news-div {
@@ -21,10 +20,13 @@
   margin-right: 24px;
   border: solid 1px;
   border-color: transparent;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   @extend .tran;
   img {
     width: 100%;
-    height: 282px;
+    height: 230px;
     object-fit: cover;
   }
   &:hover {
@@ -53,7 +55,8 @@
     line-height: 24px;
     text-decoration: none;
   }
-  margin-top: 24px;
+  padding-bottom: 24px;
+  padding-left: 24px;
 }
 
 .content-news {
@@ -128,7 +131,7 @@
     // overflow: hidden;
     position: -1;
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       width: 324.29px;
       height: 324.29px;
@@ -141,7 +144,7 @@
     }
     &::before {
       position: absolute;
-      content: "";
+      content: '';
       width: 630.55px;
       height: 630.55px;
       left: 750px;
@@ -170,45 +173,77 @@
 
 .market-page {
   padding-top: 100px;
-  .detail-market{
+  .detail-market {
     padding: 30px 0;
-    .content{
+    .content {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       height: 100%;
       padding-left: 50px;
-      .d-flex{
+      .d-flex {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         gap: 24px;
       }
     }
-    ul{
+    ul {
       list-style: none;
       padding: 0;
-      li{
+      li {
         margin-bottom: 16px;
         display: flex;
-        span{
-          &:first-child{
+        span {
+          &:first-child {
             width: 180px;
             display: inline-block;
           }
-          &:last-child{
+          &:last-child {
             width: calc(100% - 180px);
           }
         }
       }
     }
-    .bottom{
-      border-top: solid 1px rgba(255, 255, 255, 0.08);;
+    .bottom {
+      border-top: solid 1px rgba(255, 255, 255, 0.08);
       margin-top: auto;
       padding-top: 24px;
       display: flex;
-        flex-direction: column;
-        gap: 16px;
+      flex-direction: column;
+      gap: 16px;
     }
   }
+}
+
+.news-list-all {
+  flex-wrap: wrap;
+  .card-news-div {
+    margin-bottom: 24px;
+  }
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 152px;
+  .pagination {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    a {
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      border-radius: 0;
+      background-color: transparent;
+      padding: 8px 12px;
+      &.active {
+        color:#feda00;
+      }
+    }
+  }
+
 }
