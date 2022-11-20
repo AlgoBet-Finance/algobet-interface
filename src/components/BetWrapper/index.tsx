@@ -6,7 +6,6 @@ export default function BetWrapper() {
   const [openPage, setOpenPage] = useState(true)
 
   const betSlip = useBetSelector()
-  console.log(betSlip, 'betSlip')
   if (betSlip.listBet.length === 0) {
     return <></>
   }

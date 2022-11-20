@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import $ from 'jquery'
 import { Link, NavLink } from 'react-router-dom'
+import { useNftSelector } from 'store/nft/hooks'
 
 export default function HotNFT({
   isOnHomePage,
@@ -26,65 +27,7 @@ export default function HotNFT({
       $(`#${idScroll}`).animate({ scrollLeft: ($(`#${idScroll}`).scrollLeft() || 0) + widthCard }, 300)
     })
   }, [idScroll, idScrollLeft, idScrollRight])
-  const list = [
-    {
-      id: 11,
-      imageUrl: '/images/nft-collection/20_.jpg',
-      title: 'Star Ticket 20%',
-      price: '150',
-      totalAmount: 100,
-      available: 80,
-    },
-    {
-      id: 2,
-      imageUrl: '/images/nft-collection/15_.jpg',
-      title: 'Star Ticket 15%',
-      price: '100',
-      totalAmount: 100,
-      available: 68,
-    },
-    {
-      id: 11,
-      imageUrl: '/images/nft-collection/10_.jpg',
-      title: 'Star Ticket 10%',
-      price: '50',
-      totalAmount: 1000,
-      available: 462,
-    },
-    {
-      id: 11,
-      imageUrl: '/images/nft-collection/5_.jpg',
-      title: 'Star Ticket 5%',
-      price: '20',
-      totalAmount: 5000,
-      available: 232,
-    },
-    {
-      id: 2,
-      imageUrl: '/images/nft-collection/3_.jpg',
-      title: 'Star Ticket 3%',
-      price: '10',
-      totalAmount: 10000,
-      available: 168,
-    },
-    {
-      id: 2,
-      imageUrl: '/images/nft-collection/x_.jpg',
-      title: 'Star Ticket Lucky',
-      price: '300',
-      totalAmount: 100,
-      available: 8,
-    },
-    {
-      id: 2,
-      imageUrl: '/images/nft-collection/ctBrazil.jpg',
-      title: 'Country Token Brazil',
-      iconPrice: '/images/pay/Binance_Logo.png',
-      price: '1 USDT',
-      totalAmount: 100,
-      available: 20,
-    },
-  ]
+  const nft = useNftSelector()
 
   return (
     <div className="nft ">
@@ -107,7 +50,7 @@ export default function HotNFT({
           </div>
         </div>
         <div className="row card-list" id={idScroll}>
-          {list.map((item, index) => (
+          {nft.listNft.map((item, index) => (
             <div className={`${numberOnScreen === 3 ? 'col-md-4' : 'col-3'} card-nft-div`}>
               <Link to={{ pathname: `/marketplace/${item.id}` }}>
                 <div className={`card-nft ${idScroll}`}>

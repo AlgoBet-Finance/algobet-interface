@@ -4,6 +4,7 @@ import cloneDeep from 'lodash/cloneDeep'
 import { useDispatch } from 'react-redux'
 import application from 'store/application'
 import betSlip from 'store/betSlip'
+import nft from 'store/nft'
 import block from 'store/block'
 import transactions, { initialState as transactionsInitialState } from 'store/transactions'
 import tokens, { initialState as tokenInitialState } from 'store/tokens'
@@ -14,6 +15,7 @@ const store = configureStore({
   devTools: process.env.NODE_ENV !== 'production',
   reducer: {
     betSlip,
+    nft,
     application,
     block,
     transactions,
