@@ -131,7 +131,7 @@
     // overflow: hidden;
     position: -1;
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       width: 324.29px;
       height: 324.29px;
@@ -144,7 +144,7 @@
     }
     &::before {
       position: absolute;
-      content: '';
+      content: "";
       width: 630.55px;
       height: 630.55px;
       left: 750px;
@@ -181,11 +181,21 @@
       justify-content: space-between;
       height: 100%;
       padding-left: 50px;
+      @include mw-768 {
+        padding-left: 0;
+      }
       .d-flex {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         gap: 24px;
+      }
+    }
+    .hover-img {
+      figure {
+        @include mw-768 {
+          width: 100%;
+        }
       }
     }
     ul {
@@ -241,9 +251,8 @@
       background-color: transparent;
       padding: 8px 12px;
       &.active {
-        color:#feda00;
+        color: #feda00;
       }
     }
   }
-
 }

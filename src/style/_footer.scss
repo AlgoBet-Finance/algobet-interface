@@ -30,9 +30,14 @@ footer {
 }
 
 .footer-s2 {
-  padding: 32px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  >div{
+    padding: 32px 0;
+
+  }
 }
 
 .footer-s3 {
