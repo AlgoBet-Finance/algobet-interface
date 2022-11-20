@@ -30,7 +30,7 @@ const MarketplaceDetail = () => {
         // console.log(parseInt(params.id))
         if (item.id === idNft) {
           setNft(item)
-          console.log(item)
+          // console.log(item)
         }
       })
     }
