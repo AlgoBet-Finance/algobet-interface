@@ -42,7 +42,7 @@ const MarketplacePage = () => {
       <HotNFT
         isOnHomePage={false}
         numberOnScreen={3}
-        title="Lorem ipsum"
+        title="News NFT items"
         idScroll="scroll-bar-nft1"
         idScrollLeft="scroll-left-nft1"
         idScrollRight="scroll-right-nft1"
@@ -50,7 +50,7 @@ const MarketplacePage = () => {
       <HotNFT
         isOnHomePage={false}
         numberOnScreen={3}
-        title="Lorem ipsum"
+        title="Top buy"
         idScroll="scroll-bar-nft2"
         idScrollLeft="scroll-left-nft2"
         idScrollRight="scroll-right-nft2"

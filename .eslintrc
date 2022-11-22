@@ -25,6 +25,9 @@
     "@typescript-eslint/no-use-before-define": 0,
     "@typescript-eslint/explicit-module-boundary-types": 0,
     "@typescript-eslint/no-explicit-any": 0,
+    "@typescript-eslint/no-inferrable-types": "off",
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["error"],
     "radix": 0,
     "import/no-extraneous-dependencies": 0,
     "jsx-a11y/media-has-caption": 0,
@@ -39,6 +42,18 @@
     "react/react-in-jsx-scope": "off",
     "no-alert": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
-    "spaced-comment": "off"
+    "spaced-comment": "off",
+
+    "no-restricted-syntax": [
+      "error",
+      {
+        "selector": "FunctionExpression",
+        "message": "Function expressions are not allowed."
+      },
+      {
+        "selector": "CallExpression[callee.name='setTimeout'][arguments.length!=2]",
+        "message": "setTimeout must always be invoked with two arguments."
+      }
+    ]
   }
 }

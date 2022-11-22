@@ -15,6 +15,8 @@ import LeaderBoard from 'components/LeaderBoard'
 // Import Swiper styles
 
 const Home = () => {
+  const matchList = null
+
   return (
     <>
       <div className="hero">
@@ -114,7 +116,7 @@ const Home = () => {
           </div>
         </div> */}
       </div>
-      <Match />
+      <Match matchList={matchList} />
       <MatchComing />
       <CTA />
       <Featured isOnHomePage />

@@ -1,6 +1,7 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState, useCallback } from 'react'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Keyboard, Scrollbar, Navigation, Pagination, Autoplay } from 'swiper'
@@ -11,16 +12,97 @@ import MatchComing from 'components/MatchComing'
 import CTA from 'components/CTA'
 import Featured from 'components/Featured'
 import LeaderBoard from 'components/LeaderBoard'
+import { get } from 'services/api'
+import { useSearchParams } from 'react-router-dom'
 
 // Import Swiper styles
 
+const SIZE = 9
+
 const NewsPage = () => {
+  const [listNews, setListNews] = useState([] as any[])
+  const [total, setTotal] = useState(0)
+  const [page, setPage] = useState(1)
+
+  useEffect(() => {
+    const { search } = window.location
+    const params = new URLSearchParams(search)
+    const p = parseInt(params.get('p') || "1")
+    setPage(p)
+    get('http://api.algobet-sports.com/api/news', {
+      limit: 9,
+      page: p,
+    }).then((response) => {
+      setListNews(response.data.news)
+      setTotal(response.data.totalCount)
+    })
+  }, [])
+
+
+  const getPagination = useCallback(() => {
+    const pageArray = []
+    const numberOfPage = Math.ceil(total / SIZE)
+    const prevPage = page - 1 >= 1 ? page - 1 : 1
+    const nextPage = page + 1 <= numberOfPage ? page + 1 : numberOfPage
+    const params = new URLSearchParams(new URL(window.location.href).search)
+    params.delete('p')
+    pageArray.push(1)
+    if (page >= 5) {
+      pageArray.push(-1)
+    }
+    if (page >= 4) {
+      pageArray.push(page - 2)
+    }
+    if (page >= 3) {
+      pageArray.push(page - 1)
+    }
+    if (page >= 2 && page < numberOfPage) {
+      pageArray.push(page)
+    }
+    if (page < numberOfPage - 1) {
+      pageArray.push(page + 1)
+    }
+    if (page < numberOfPage - 2) { pageArray.push(page + 2) }
+    if (page < numberOfPage - 3) { pageArray.push(-1) }
+    if (numberOfPage >= 2) { pageArray.push(numberOfPage) }
+    return (
+      <div className="pagination-container">
+        <div className="pagination">
+          {pageArray.length >= 2
+            && (
+              <>
+                <a href={`?${params.toString().replaceAll('%2C', ',')}${`&p=${prevPage}`}`}>
+                  <div>
+                    <img className="chevron-left-icon" src="/images/arrow-left.svg" alt="chevron_left" />
+                  </div>
+                </a>
+                {pageArray.map((item) => {
+                  if (item.toString() === '-1') {
+                    return (<a>...</a>)
+                  } if (item === page) {
+                    return (<a className="active" href={`?${params.toString().replaceAll('%2C', ',')}${`&p=${item}`}`}>{item}</a>)
+                  }
+                  return (<a href={`?${params.toString().replaceAll('%2C', ',')}${`&p=${item}`}`}>{item}</a>)
+                })}
+                <a href={`?${params.toString().replaceAll('%2C', ',')}${`&p=${nextPage}`}`}>
+                  <div>
+                    <img className="chevron-right-icon" src="/images/arrow-right.svg" alt="chevron_right" />
+                  </div>
+                </a>
+              </>
+            )}
+        </div>
+      </div>
+    )
+  }, [page, total])
+  
+
   return (
     <div className="news-page">
       <div className="container">
         <div className="news-top">
           <h1>news</h1>
-          <p>
+          {/* <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua.
           </p>
@@ -35,9 +117,9 @@ const NewsPage = () => {
               />
             </svg>
             <input type="text" placeholder="What are you looking for?" />
-          </div>
+          </div> */}
         </div>
-        <div className="row">
+        {/* <div className="row">
           <div className="col-md-6">
             <a className="featured-item" href="/">
               <div className="hover-img ">
@@ -62,9 +144,33 @@ const NewsPage = () => {
               <a href="/">READ MORE</a>
             </div>
           </div>
+        </div> */}
+        {/* <News /> */}
+        <div className="news" style={{marginBottom: 20}}>
+          <div className="container">
+            <div className="row card-list news-list-all" id="scroll-bar-news">
+              {listNews.map((item) => (
+                <div key={item.id} className="col-md-4 card-news-div">
+                  <div className="card-news">
+                    <img src={item.urlToImage} alt="news" />
+                    <div className="content-news">
+                      <div className="title-card">{item.title}</div>
+                      <div className="des-news">{item.description}</div>
+                    </div>
+                    <div style={{ marginTop: 'auto' }}>
+                      <div className="readmore-news">
+                        <a target="_blank" href={item.url} rel="noreferrer">
+                          READ MORE
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-      <News />
-
+        {getPagination()}
       </div>
     </div>
   )

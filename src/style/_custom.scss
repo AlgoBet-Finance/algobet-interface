@@ -62,8 +62,18 @@
     border: 2px solid $main;
     background-color: $main;
     &:hover {
+      background-color: $main;
+      border: 2px solid #fff;
+    }
+  }
+  &-bet {
+    border: 2px solid $main;
     background-color: $main;
-    border: 2px solid #fff;
+    color: #000000;
+
+    &:hover {
+      background-color: $main;
+      color: #000000;
     }
   }
 }
@@ -120,4 +130,123 @@
     width: 186px;
     height: 156px;
   }
+}
+
+.all-football-matches {
+  background: #222224;
+  padding: 8px;
+  margin-top: 40px;
+  margin-bottom: 154px;
+}
+
+.match-tab {
+  display: flex;
+}
+
+.tab-item {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 24px 16px;
+  margin-right: 24px;
+  cursor: pointer;
+  &.active {
+    color: #feda00;
+  }
+}
+
+.match-rs {
+  display: flex;
+  img {
+    width: 24px;
+    height: 24px;
+    border-radius: 100px;
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+}
+
+.match-score {
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+.table-match {
+  width: 100%;
+  font-size: 14px;
+  line-height: 20px;
+  th {
+    height: 52px;
+  }
+  td {
+    height: 56px;
+  }
+
+  th,
+  td {
+    div:first-child {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+.bet-box {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 96px;
+  height: 28px;
+}
+
+.soon {
+  background: rgba(247, 65, 65, 0.08);
+  border-radius: 24px;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  color: #f74141;
+  padding: 4px 8px;
+}
+
+.table-bet {
+  thead {
+    tr {
+      th:nth-child(n + 6) {
+        padding: 18px;
+        div:first-child {
+          justify-content: flex-end;
+        }
+      }
+    }
+  }
+  tbody {
+    tr {
+      td:nth-child(n + 6) {
+        padding: 18px;
+        div:first-child {
+          justify-content: flex-end;
+        }
+      }
+    }
+  }
+}
+
+.text-odd {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.text-win {
+  color: #17cb49;
+}
+
+.text-lose {
+  color: #f74141;
+}
+
+.icon-money {
+  width: 20px;
+  height: 20px;
+  margin-left: 8px;
 }

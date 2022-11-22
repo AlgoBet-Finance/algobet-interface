@@ -25,7 +25,7 @@ export default function Footer() {
               </a>
             </div>
           </div>
-          <div style={{ marginLeft: 112, marginRight: 145 }}>
+          <div>
             <div className="footer-title">Platforms</div>
             <div className="icon-footer">
               <a href="/">
