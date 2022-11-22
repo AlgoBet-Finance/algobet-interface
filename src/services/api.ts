@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
 
-const baseURL = 'http://api.algobet-sports.com/api/'
+const baseURL = 'https://api.algobet-sports.com/api/'
 
 const apiClient = axios.create({
   baseURL,
