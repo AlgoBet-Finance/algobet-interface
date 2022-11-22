@@ -5,7 +5,7 @@ import { get } from 'services/api'
 export default function News() {
   const [listNews, setListNews] = useState([] as any[])
   useEffect(() => {
-    get('http://api.algobet-sports.com/api/news', {
+    get('https://api.algobet-sports.com/api/news', {
       limit: 5,
       page: 1,
     }).then((response) => {
