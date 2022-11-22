@@ -29,7 +29,7 @@ const NewsPage = () => {
     const params = new URLSearchParams(search)
     const p = parseInt(params.get('p') || "1")
     setPage(p)
-    get('http://api.algobet-sports.com/api/news', {
+    get('https://api.algobet-sports.com/api/news', {
       limit: 9,
       page: p,
     }).then((response) => {
