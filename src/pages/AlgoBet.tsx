@@ -21,7 +21,7 @@ const AlgoBet = () => {
 
   return (
     <div className="algoBet">
-      <Match matchList={matchList} />
+      <Match />
       <div className="container">
         <h2>All football matches</h2>
         <div className="all-football-matches">

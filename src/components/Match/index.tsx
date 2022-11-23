@@ -1,11 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import $ from 'jquery'
 
+import { baseURL, get } from 'services/api'
 import { useAddBetCallback } from 'store/betSlip/hooks'
+import { IMatch } from 'interfaces/components/IMatch'
+import { timestampToDate, timestampToTime } from 'utils/time'
 
-export default function Match({ matchList }: any) {
+export default function Match() {
+  const [matchList, setMatchList] = useState([] as IMatch[])
   useEffect(() => {
-    const widthCard = $('.match-item')[0].offsetWidth + 24
+    get(`${baseURL}/match/hot-matches`, {
+      limit: 10,
+      page: 1,
+    }).then((response) => {
+      console.log('hot-matches :>> ', response.data)
+      setMatchList(response.data.hotMatches)
+    })
+  }, [])
+
+  useEffect(() => {
+    const widthCard = $('.match-item')[0]?.offsetWidth + 24
     $('#scroll-left-match').on('click', () => {
       $('#scroll-match').animate({ scrollLeft: ($('#scroll-match').scrollLeft() || 0) - widthCard }, 276)
     })
@@ -13,12 +27,11 @@ export default function Match({ matchList }: any) {
       $('#scroll-match').animate({ scrollLeft: ($('#scroll-match').scrollLeft() || 0) + widthCard }, 276)
     })
   }, [])
-  // const matchList = [1, 2, 3, 4, 5, 6]
   const addBet = useAddBetCallback()
   const betHandle = (item: number) => {
     addBet(item)
   }
-  console.log(matchList)
+
   return (
     <div className="match">
       <div className="container">
@@ -45,13 +58,13 @@ export default function Match({ matchList }: any) {
           <div className="card-list" id="scroll-match">
             {matchList.length > 0 ? (
               <>
-                {matchList.map((item: any) => (
+                {matchList.map((match: IMatch) => (
                   <div className="match-item">
                     <div className="inner">
                       <div className="d-flex justify-content-between align-items-center">
                         <div className="d-flex flex-column">
-                          <span className="fs-16 font-w600">12:00</span>
-                          <span className="fs-12 text-3">Nov 20</span>
+                          <span className="fs-16 font-w600"> {timestampToTime(match.matchTime)} </span>
+                          <span className="fs-12 text-3"> {timestampToDate(match.matchTime)} </span>
                         </div>
                         <div className="flags">
                           <div className="flags-item">
@@ -64,22 +77,22 @@ export default function Match({ matchList }: any) {
                       </div>
                       <div>
                         <div className="d-flex justify-content-between align-items-center">
-                          <span className="fs-24 font-w600">England</span>
-                          <span className="fs-24 font-w600"> 2</span>
+                          <span className="fs-24 font-w600"> {match.homeTeamName} </span>
+                          <span className="fs-24 font-w600"> {match.homeScore} </span>
                         </div>
                         <div className="d-flex justify-content-between align-items-center">
-                          <span className="fs-24 text-2">England</span>
-                          <span className="fs-24 text-2">2</span>
+                          <span className="fs-24 text-2"> {match.awayTeamName} </span>
+                          <span className="fs-24 text-2"> {match.awayScore} </span>
                         </div>
                       </div>
                       <div className="bottom">
-                        <div className="bottom-item green" onClick={() => betHandle(item.id)} role="presentation">
+                        <div className="bottom-item green" onClick={() => betHandle(match.id)} role="presentation">
                           1.12
                         </div>
-                        <div className="bottom-item" onClick={() => betHandle(item.id)} role="presentation">
+                        <div className="bottom-item" onClick={() => betHandle(match.id)} role="presentation">
                           1.12
                         </div>
-                        <div className="bottom-item red" onClick={() => betHandle(item.id)} role="presentation">
+                        <div className="bottom-item red" onClick={() => betHandle(match.id)} role="presentation">
                           1.12
                         </div>
                       </div>
