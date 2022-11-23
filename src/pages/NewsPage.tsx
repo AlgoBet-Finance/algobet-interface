@@ -12,7 +12,7 @@ import MatchComing from 'components/MatchComing'
 import CTA from 'components/CTA'
 import Featured from 'components/Featured'
 import LeaderBoard from 'components/LeaderBoard'
-import { get } from 'services/api'
+import { baseURL, get } from 'services/api'
 import { useSearchParams } from 'react-router-dom'
 
 // Import Swiper styles
@@ -29,7 +29,7 @@ const NewsPage = () => {
     const params = new URLSearchParams(search)
     const p = parseInt(params.get('p') || "1")
     setPage(p)
-    get('https://api.algobet-sports.com/api/news', {
+    get(`${baseURL}/news`, {
       limit: 9,
       page: p,
     }).then((response) => {
