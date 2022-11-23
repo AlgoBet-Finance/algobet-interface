@@ -5,6 +5,7 @@ import { baseURL, get } from 'services/api'
 import { useAddBetCallback } from 'store/betSlip/hooks'
 import { IMatch } from 'interfaces/components/IMatch'
 import { timestampToDate, timestampToTime } from 'utils/time'
+import { getFlag } from 'utils/flag'
 
 export default function Match() {
   const [matchList, setMatchList] = useState([] as IMatch[])
@@ -68,10 +69,10 @@ export default function Match() {
                         </div>
                         <div className="flags">
                           <div className="flags-item">
-                            <img src="images/flags/en.svg" alt="eng" />
+                            <img src={getFlag(match.homeTeamName)} alt={match.homeTeamName} />
                           </div>
                           <div className="flags-item">
-                            <img src="images/flags/ee.svg" alt="eng" />
+                            <img src={getFlag(match.awayTeamName)} alt={match.awayTeamName} />
                           </div>
                         </div>
                       </div>
