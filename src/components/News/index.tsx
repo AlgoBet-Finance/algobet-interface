@@ -5,10 +5,11 @@ import { baseURL, get } from 'services/api'
 export default function News() {
   const [listNews, setListNews] = useState([] as any[])
   useEffect(() => {
-    get(`${baseURL}/new`, {
+    get(`${baseURL}/news`, {
       limit: 5,
       page: 1,
     }).then((response) => {
+      console.log('listNews :>> ', response.data);
       setListNews(response.data.news)
     })
   }, [])
