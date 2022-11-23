@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import $ from 'jquery'
-import { get } from 'services/api'
+import { baseURL, get } from 'services/api'
 
 export default function News() {
   const [listNews, setListNews] = useState([] as any[])
   useEffect(() => {
-    get('https://api.algobet-sports.com/api/news', {
+    get(`${baseURL}/news`, {
       limit: 5,
       page: 1,
     }).then((response) => {
+      console.log('listNews :>> ', response.data);
       setListNews(response.data.news)
     })
   }, [])

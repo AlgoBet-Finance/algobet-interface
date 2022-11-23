@@ -1,9 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import $ from 'jquery'
 
+import { baseURL, get } from 'services/api'
+import { IMatch } from 'interfaces/components/IMatch'
+import { timestampToDate, timestampToTime } from 'utils/time'
+
 export default function MatchComing() {
+  const [matchList, setMatchList] = useState([] as any[])
   useEffect(() => {
-    const widthCard = $('.match-item')[0].offsetWidth + 24
+    get(`${baseURL}/match`, {
+      limit: 30,
+      page: 1,
+    }).then((response) => {
+      console.log('comming-matches :>> ', response.data)
+      setMatchList(response.data.matches)
+    })
+  }, [])
+
+  useEffect(() => {
+    const widthCard = $('.match-item')[0]?.offsetWidth + 24
     $('#scroll-left-matchComing').on('click', () => {
       $('#scroll-matchComing').animate({ scrollLeft: ($('#scroll-matchComing').scrollLeft() || 0) - widthCard }, 276)
     })
@@ -11,7 +26,6 @@ export default function MatchComing() {
       $('#scroll-matchComing').animate({ scrollLeft: ($('#scroll-matchComing').scrollLeft() || 0) + widthCard }, 276)
     })
   }, [])
-  const matchList = [1, 2, 3, 4, 5, 6]
   return (
     <div className="match">
       <div className="container">
@@ -30,13 +44,13 @@ export default function MatchComing() {
           </div>
         </div>
         <div className="card-list" id="scroll-matchComing">
-          {matchList.map((item, key) => (
+          {matchList.map((match: IMatch) => (
             <div className="match-item">
               <div className="inner">
                 <div className="d-flex justify-content-between align-items-center">
                   <div className="d-flex flex-column">
-                    <span className="fs-16 font-w600">12:00</span>
-                    <span className="fs-12 text-3">Nov 20</span>
+                    <span className="fs-16 font-w600">{timestampToTime(match.matchTime)}</span>
+                    <span className="fs-12 text-3">{timestampToDate(match.matchTime)}</span>
                   </div>
                   <div className="flags">
                     <div className="flags-item">
@@ -49,12 +63,12 @@ export default function MatchComing() {
                 </div>
                 <div>
                   <div className="d-flex justify-content-between align-items-center">
-                    <span className="fs-24 font-w600">England</span>
-                    <span className="fs-24 font-w600"> 2</span>
+                    <span className="fs-24 font-w600"> {match.homeTeamName} </span>
+                    <span className="fs-24 font-w600"> {match.homeScore} </span>
                   </div>
                   <div className="d-flex justify-content-between align-items-center">
-                    <span className="fs-24 text-2">England</span>
-                    <span className="fs-24 text-2">2</span>
+                    <span className="fs-24 text-2"> {match.awayTeamName} </span>
+                    <span className="fs-24 text-2"> {match.awayScore} </span>
                   </div>
                 </div>
                 <div className="bottom">

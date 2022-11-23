@@ -68,6 +68,7 @@
   },
   "devDependencies": {
     "@types/jest": "^27.0.3",
-    "@types/jquery": "^3.5.14"
+    "@types/jquery": "^3.5.14",
+    "moment": "^2.29.4"
   }
 }

@@ -116,7 +116,7 @@ const Home = () => {
           </div>
         </div> */}
       </div>
-      <Match matchList={matchList} />
+      <Match />
       <MatchComing />
       <CTA />
       <Featured isOnHomePage />
