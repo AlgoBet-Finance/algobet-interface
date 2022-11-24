@@ -69,10 +69,10 @@ export default function Match() {
                         </div>
                         <div className="flags">
                           <div className="flags-item">
-                            <img src={getFlag(match.homeTeamName)} alt={match.homeTeamName} />
+                            <img src={getFlag(match.homeTeamCode)} alt={match.homeTeamName} />
                           </div>
                           <div className="flags-item">
-                            <img src={getFlag(match.awayTeamName)} alt={match.awayTeamName} />
+                            <img src={getFlag(match.awayTeamCode)} alt={match.awayTeamName} />
                           </div>
                         </div>
                       </div>

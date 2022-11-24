@@ -1,24 +1,21 @@
 export const getFlag = (flag: string) => {
   switch (flag) {
-    case 'QAT':
+    case 'QUA':
       return '/images/flags/qa.svg'
       break
     case 'ECU':
       return '/images/flags/ec.svg'
       break
-    case 'GB':
+    case 'ENG':
       return '/images/flags/gb.svg'
       break
-    case 'IR':
+    case 'IRN':
       return '/images/flags/ir.svg'
-      break
-    case 'SN':
-      return '/images/flags/sn.svg'
       break
     case 'AN':
       return '/images/flags/an.svg'
       break
-    case 'US':
+    case 'USA':
       return '/images/flags/us.svg'
       break
     case 'Wales':
@@ -27,20 +24,20 @@ export const getFlag = (flag: string) => {
     case 'ARG':
       return '/images/flags/ar.svg'
       break
-    case 'SAU':
+    case 'KSA':
       return '/images/flags/sa.svg'
       break
-    case 'DNK':
-      return '/images/flags/dn.svg'
+    case 'DEN':
+      return '/images/flags/dk.svg'
       break
     case 'TUN':
-      return '/images/flags/tu.svg'
+      return '/images/flags/tn.svg'
       break
     case 'MEX':
       return '/images/flags/me.svg'
       break
     case 'POL':
-      return '/images/flags/po.svg'
+      return '/images/flags/pl.svg'
       break
     case 'FRA':
       return '/images/flags/fr.svg'
@@ -51,10 +48,10 @@ export const getFlag = (flag: string) => {
     case 'MAR':
       return '/images/flags/ma.svg'
       break
-    case 'HRV':
+    case 'CRC':
       return '/images/flags/hr.svg'
       break
-    case 'DEU':
+    case 'GER':
       return '/images/flags/de.svg'
       break
     case 'JPN':
@@ -81,11 +78,8 @@ export const getFlag = (flag: string) => {
     case 'URY':
       return '/images/flags/ur.svg'
       break
-    case 'KOR':
-      return '/images/flags/ko.svg'
-      break
-    case 'PRT':
-      return '/images/flags/pr.svg'
+    case 'POR':
+      return '/images/flags/pt.svg'
       break
     case 'GHA':
       return '/images/flags/gh.svg'
@@ -101,6 +95,12 @@ export const getFlag = (flag: string) => {
       break
     case 'ANT':
       return '/images/flags/an.svg'
+      break
+    case 'URU':
+      return '/images/flags/uy.svg'
+      break
+    case 'KOR':
+      return '/images/flags/kr.svg'
       break
     default:
       return '/images/flags/en.svg'

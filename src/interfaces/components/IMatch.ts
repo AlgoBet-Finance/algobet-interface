@@ -7,6 +7,8 @@ export interface IMatch {
   minutePlayed?: number
   status: MatchStatus
   homeTeamName: string
+  homeTeamCode:string
+  awayTeamCode:string
   awayTeamName: string
   homeScore?: number
   awayScore?: number
