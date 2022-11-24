@@ -1,20 +1,34 @@
 import React, { useEffect, useState } from 'react'
 import $ from 'jquery'
+import { get } from 'services/api'
 
 export default function Featured({ isOnHomePage }: { isOnHomePage: any }) {
+  const [promotionHot, setPromotionHot] = useState([] as any[])
+
   useEffect(() => {
-    const widthCard = $('.featured-item')[0].offsetWidth + 24
-    $('#scroll-left-promotion').on('click', () => {
-      $('#scroll-bar-promotion').animate(
-        { scrollLeft: ($('#scroll-bar-promotion').scrollLeft() || 0) - widthCard },
-        300
-      )
-    })
-    $('#scroll-right-promotion').on('click', () => {
-      $('#scroll-bar-promotion').animate(
-        { scrollLeft: ($('#scroll-bar-promotion').scrollLeft() || 0) + widthCard },
-        300
-      )
+    if (promotionHot.length > 0) {
+      const widthCard = $('.featured-item')[0].offsetWidth + 24
+      $('#scroll-left-promotion').on('click', () => {
+        $('#scroll-bar-promotion').animate(
+          { scrollLeft: ($('#scroll-bar-promotion').scrollLeft() || 0) - widthCard },
+          300
+        )
+      })
+      $('#scroll-right-promotion').on('click', () => {
+        $('#scroll-bar-promotion').animate(
+          { scrollLeft: ($('#scroll-bar-promotion').scrollLeft() || 0) + widthCard },
+          300
+        )
+      })
+    }
+  }, [promotionHot])
+  useEffect(() => {
+    get(`/promotion/hot-promotions`, {
+      limit: 30,
+      page: 1,
+    }).then((response) => {
+      console.log('promotion/hot-promotions :>> ', response.data)
+      setPromotionHot(response.data.hotPromotions)
     })
   }, [])
   const matchList = [1, 2, 3]
@@ -22,38 +36,52 @@ export default function Featured({ isOnHomePage }: { isOnHomePage: any }) {
     <div className="featured">
       <div className="container">
         <div className="title-h2">
-          <h2>{isOnHomePage ? 'Featured promotions' : 'Hot promotions for you'}</h2>
-          <div className="group-view-btn">
-            {isOnHomePage ? (
-              <button type="button" className="btn-view btn-view-all">
-                <a href="/">VIEW ALL</a>
-              </button>
-            ) : (
-              <>
-                <button id="scroll-left-promotion" type="button" className="btn-view btn-prev-next btn-prev">
-                  <img src="/images/arrow-left.svg" alt="arrow-left" />
-                </button>
-                <button id="scroll-right-promotion" type="button" className="btn-view btn-prev-next btn-next">
-                  <img src="/images/arrow-right.svg" alt="arrow-right" />
-                </button>
-              </>
-            )}
-          </div>
+          {promotionHot.length > 0 ? (
+            <>
+              <h2>{isOnHomePage ? 'Featured promotions' : 'Hot promotions for you'}</h2>
+              <div className="group-view-btn">
+                {isOnHomePage ? (
+                  <button type="button" className="btn-view btn-view-all">
+                    <a href="/">VIEW ALL</a>
+                  </button>
+                ) : (
+                  <>
+                    <button id="scroll-left-promotion" type="button" className="btn-view btn-prev-next btn-prev">
+                      <img src="/images/arrow-left.svg" alt="arrow-left" />
+                    </button>
+                    <button id="scroll-right-promotion" type="button" className="btn-view btn-prev-next btn-next">
+                      <img src="/images/arrow-right.svg" alt="arrow-right" />
+                    </button>
+                  </>
+                )}
+              </div>
+            </>
+          ) : (
+            <></>
+          )}
         </div>
         <div className="row featured-list" id="scroll-bar-promotion">
-          {matchList.map((item, key) => (
-            <div key={item} className="col-md-4 featured-item-div">
-              <a className="featured-item" href='/'>
-                <div className="hover-img ">
-                  <figure>
-                    <img src="/images/pay/promotion-banner.png" alt="banner" />
-                  </figure>
+          {promotionHot.length > 0 ? (
+            <>
+              {promotionHot.map((item, key) => (
+                <div key={item} className="col-md-4 featured-item-div">
+                  <a className="featured-item" href="/">
+                    <div className="hover-img ">
+                      <figure>
+                        <img src="/images/pay/promotion-banner.png" alt="banner" />
+                      </figure>
+                    </div>
+                    <p className="text-3">End at 3:12 PM - Sep15, 2022</p>
+                    <h4 className="fs-16 font-w600">Lorem ipsum dolor sit amet</h4>
+                  </a>
                 </div>
-                <p className="text-3">End at 3:12 PM - Sep15, 2022</p>
-                <h4 className="fs-16 font-w600">Lorem ipsum dolor sit amet</h4>
-              </a>
-            </div>
-          ))}
+              ))}
+            </>
+          ) : (
+            <>
+              {/* <div className="text-center">No promotion</div> */}
+            </>
+          )}
         </div>
       </div>
     </div>
