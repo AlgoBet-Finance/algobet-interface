@@ -12,6 +12,7 @@ import CTA from 'components/CTA'
 import Featured from 'components/Featured'
 import LeaderBoard from 'components/LeaderBoard'
 import { get } from 'services/api'
+import { Link } from 'react-router-dom'
 
 // Import Swiper styles
 
@@ -29,7 +30,6 @@ const Promotions = () => {
       console.log('promotion :>> ', response.data)
       setPromotionList(response.data.matches)
     })
-   
   }, [])
   return (
     <>
@@ -86,11 +86,13 @@ const Promotions = () => {
           <div className="row featured-list-all" id="scroll-bar-promotion">
             {promotionList.map((item) => (
               <div key={item} className="col-3 featured-item-div">
-                <div className="featured-item">
-                  <img src="/images/pay/promotion-banner.png" alt="arrow-right" />
-                  <p className="text-3">End at 3:12 PM - Sep15, 2022</p>
-                  <h4 className="fs-16 font-w600">Lorem ipsum dolor sit amet</h4>
-                </div>
+                <Link to={{ pathname: `/promotions/${item.id}` }}>
+                  <div className="featured-item">
+                    <img src="/images/pay/promotion-banner.png" alt="arrow-right" />
+                    <p className="text-3">End at {item.endDate}</p>
+                    <h4 className="fs-16 font-w600">{item.title}</h4>
+                  </div>
+                </Link>
               </div>
             ))}
           </div>

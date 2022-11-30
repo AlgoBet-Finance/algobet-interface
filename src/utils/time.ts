@@ -6,3 +6,7 @@ export const timestampToDate = (timestamp: string): string => {
 export const timestampToTime = (timestamp: string): string => {
   return moment.unix(Number(timestamp)).format('HH:mm')
 }
+
+export const timestampFormat = (timestamp: string): string => {
+  return moment.unix(Number(timestamp)).format('HH:mm')
+}

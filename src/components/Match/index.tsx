@@ -61,11 +61,12 @@ export default function Match() {
               <>
                 {matchList.map((match: IMatch) => {
                   if (
-                    parseInt(match.matchTime) > new Date().getTime() / 1000 &&
-                    parseInt(match.matchTime) < new Date().getTime() / 1000 + 66400
+                    parseInt(match.matchTime) > new Date().getTime() / 1000 - 1000
+                    // &&
+                    // parseInt(match.matchTime) < new Date().getTime() / 1000 + 66400
                   ) {
                     return (
-                      <div className="match-item">
+                      <div className="match-item" key={match.id}>
                         <div className="inner">
                           <div className="d-flex justify-content-between align-items-center">
                             <div className="d-flex flex-column">
@@ -84,11 +85,11 @@ export default function Match() {
                           <div>
                             <div className="d-flex justify-content-between align-items-center">
                               <span className="fs-24 font-w600"> {match.homeTeamName} </span>
-                              <span className="fs-24 font-w600"> {match.homeScore} </span>
+                              <span className="fs-24 font-w600"> --</span>
                             </div>
                             <div className="d-flex justify-content-between align-items-center">
                               <span className="fs-24 text-2"> {match.awayTeamName} </span>
-                              <span className="fs-24 text-2"> {match.awayScore} </span>
+                              <span className="fs-24 text-2"> --</span>
                             </div>
                           </div>
                           <div className="bottom">

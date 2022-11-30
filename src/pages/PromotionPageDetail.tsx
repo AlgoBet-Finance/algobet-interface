@@ -4,7 +4,7 @@ import React, { useEffect, useMemo, useState } from 'react'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Keyboard, Scrollbar, Navigation, Pagination } from 'swiper'
- 
+
 import { get } from 'services/api'
 import { useParams } from 'react-router-dom'
 
@@ -67,7 +67,12 @@ const PromotionPageDetail = () => {
           </SwiperSlide>
         </Swiper>
       </div>
-      <div className="container">Detail</div>
+      <div className="container">
+        <div className="mt-5 mb-5">
+          <h2>{promotionDetail.title}</h2>
+          <p>{promotionDetail.content}</p>
+        </div>
+      </div>
     </>
   )
 }

@@ -77,7 +77,7 @@ const AlgoBet = () => {
               </thead>
               <tbody>
                 {matchList.map((match: IMatch) => (
-                  <tr>
+                  <tr key={match.id}>
                     <td>
                       <div className="time">
                         <span className="fs-16 font-w600"> {timestampToTime(match.matchTime)} </span>
@@ -164,7 +164,7 @@ const AlgoBet = () => {
               </thead>
               <tbody>
                 {[].map((match: IMatch) => (
-                  <tr>
+                  <tr key={match.id}>
                     <td>
                       <div>08:00</div>
                     </td>

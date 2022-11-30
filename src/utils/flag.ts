@@ -21,6 +21,9 @@ export const getFlag = (flag: string) => {
     case 'Wales':
       return '/images/flags/gb-wls.svg'
       break
+    case 'WAL':
+      return '/images/flags/gb-wls.svg'
+      break
     case 'ARG':
       return '/images/flags/ar.svg'
       break
@@ -48,9 +51,10 @@ export const getFlag = (flag: string) => {
     case 'MAR':
       return '/images/flags/ma.svg'
       break
-    case 'CRC':
+    case 'CR0':
       return '/images/flags/hr.svg'
       break
+      
     case 'GER':
       return '/images/flags/de.svg'
       break
@@ -60,7 +64,7 @@ export const getFlag = (flag: string) => {
     case 'ESP':
       return '/images/flags/es.svg'
       break
-    case 'CRI':
+    case 'CRC':
       return '/images/flags/cr.svg'
       break
     case 'BEL':
@@ -101,6 +105,9 @@ export const getFlag = (flag: string) => {
       break
     case 'KOR':
       return '/images/flags/kr.svg'
+      break
+    case 'NED':
+      return '/images/flags/nl.svg'
       break
     default:
       return '/images/flags/en.svg'

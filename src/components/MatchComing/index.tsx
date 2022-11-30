@@ -13,7 +13,9 @@ export default function MatchComing() {
       limit: 30,
       page: 1,
     }).then((response) => {
+      
       console.log('comming-matches :>> ', response.data)
+      console.log( new Date().getTime() / 1000)
       setMatchList(response.data.matches)
     })
   }, [])
@@ -46,12 +48,14 @@ export default function MatchComing() {
         </div>
         <div className="card-list" id="scroll-matchComing">
           {matchList.map((match: IMatch) => {
-            if (
-              parseInt(match.matchTime) > new Date().getTime() / 1000 &&
-              parseInt(match.matchTime) < new Date().getTime() / 1000 + 106400
+            if (1
+              // match.status===0
+              // parseInt(match.matchTime) > new Date().getTime() / 1000 
+              // &&
+              // parseInt(match.matchTime) < new Date().getTime() / 1000 + 106400
             ) {
               return (
-                <div className="match-item">
+                <div className="match-item" key={match.id}>
                   <div className="inner">
                     <div className="d-flex justify-content-between align-items-center">
                       <div className="d-flex flex-column">
@@ -70,7 +74,10 @@ export default function MatchComing() {
                     <div>
                       <div className="d-flex justify-content-between align-items-center">
                         <span className="fs-24 font-w600"> {match.homeTeamName} </span>
-                        <span className="fs-24 font-w600"> {match.homeScore} </span>
+                        <span className="fs-24 font-w600"> 
+                       {/* -- */}
+                        {match.homeScore} 
+                        </span>
                       </div>
                       <div className="d-flex justify-content-between align-items-center">
                         <span className="fs-24 text-2"> {match.awayTeamName} </span>

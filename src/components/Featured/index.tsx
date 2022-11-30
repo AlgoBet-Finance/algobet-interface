@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import $ from 'jquery'
 import { get } from 'services/api'
+import { timestampToTime } from 'utils/time'
+import { Link } from 'react-router-dom'
 
 export default function Featured({ isOnHomePage }: { isOnHomePage: any }) {
   const [promotionHot, setPromotionHot] = useState([] as any[])
@@ -63,24 +65,24 @@ export default function Featured({ isOnHomePage }: { isOnHomePage: any }) {
         <div className="row featured-list" id="scroll-bar-promotion">
           {promotionHot.length > 0 ? (
             <>
-              {promotionHot.map((item, key) => (
-                <div key={item} className="col-md-4 featured-item-div">
-                  <a className="featured-item" href="/">
-                    <div className="hover-img ">
-                      <figure>
-                        <img src="/images/pay/promotion-banner.png" alt="banner" />
-                      </figure>
+              {promotionHot.map((item) => (
+                <div key={item.id} className="col-md-4 featured-item-div">
+                  <Link to={{ pathname: `/promotions/${item.id}` }}>
+                    <div className="featured-item">
+                      <div className="hover-img ">
+                        <figure>
+                          <img src="/images/pay/promotion-banner.png" alt="banner" />
+                        </figure>
+                      </div>
+                      <p className="text-3">End at {item.endDate} </p>
+                      <h4 className="fs-16 font-w600">{item.title}</h4>
                     </div>
-                    <p className="text-3">End at 3:12 PM - Sep15, 2022</p>
-                    <h4 className="fs-16 font-w600">Lorem ipsum dolor sit amet</h4>
-                  </a>
+                  </Link>
                 </div>
               ))}
             </>
           ) : (
-            <>
-              {/* <div className="text-center">No promotion</div> */}
-            </>
+            <>{/* <div className="text-center">No promotion</div> */}</>
           )}
         </div>
       </div>
