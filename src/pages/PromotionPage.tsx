@@ -11,11 +11,26 @@ import MatchComing from 'components/MatchComing'
 import CTA from 'components/CTA'
 import Featured from 'components/Featured'
 import LeaderBoard from 'components/LeaderBoard'
+import { get } from 'services/api'
+import { Link } from 'react-router-dom'
 
 // Import Swiper styles
 
 const Promotions = () => {
   const list = [1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4]
+  const [promotionList, setPromotionList] = useState([] as any[])
+  const [total, setTotal] = useState(0)
+  const [page, setPage] = useState(1)
+
+  useEffect(() => {
+    get(`/promotion`, {
+      limit: 12,
+      page: 1,
+    }).then((response) => {
+      console.log('promotion :>> ', response.data)
+      setPromotionList(response.data.matches)
+    })
+  }, [])
   return (
     <>
       <div className="hero">
@@ -69,13 +84,19 @@ const Promotions = () => {
             <h2>All promotions</h2>
           </div>
           <div className="row featured-list-all" id="scroll-bar-promotion">
-            {list.map((item, key) => (
+            {promotionList.map((item) => (
               <div key={item} className="col-3 featured-item-div">
-                <div className="featured-item">
-                  <img src="/images/pay/promotion-banner.png" alt="arrow-right" />
-                  <p className="text-3">End at 3:12 PM - Sep15, 2022</p>
-                  <h4 className="fs-16 font-w600">Lorem ipsum dolor sit amet</h4>
-                </div>
+                <Link to={{ pathname: `/promotions/${item.id}` }}>
+                  <div className="featured-item">
+                    <div className="hover-img ">
+                      <figure>
+                        <img src={item.urlToImage} alt="arrow-right" />{' '}
+                      </figure>
+                    </div>
+                    <p className="text-3">End at {item.endDate}</p>
+                    <h4 className="fs-16 font-w600">{item.title}</h4>
+                  </div>
+                </Link>
               </div>
             ))}
           </div>

@@ -51,7 +51,7 @@ export default function HotNFT({
         </div>
         <div className="row card-list" id={idScroll}>
           {nft.listNft.map((item, index) => (
-            <div className={`${numberOnScreen === 3 ? 'col-md-4' : 'col-3'} card-nft-div`}>
+            <div className={`${numberOnScreen === 3 ? 'col-md-4' : 'col-3'} card-nft-div`} key={item.id}>
               <Link to={{ pathname: `/marketplace/${item.id}` }}>
                 <div className={`card-nft ${idScroll}`}>
                   <div className="color-blur" />

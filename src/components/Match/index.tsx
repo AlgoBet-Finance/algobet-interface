@@ -5,15 +5,15 @@ import { baseURL, get } from 'services/api'
 import { useAddBetCallback } from 'store/betSlip/hooks'
 import { IMatch } from 'interfaces/components/IMatch'
 import { timestampToDate, timestampToTime } from 'utils/time'
+import { getFlag } from 'utils/flag'
 
 export default function Match() {
   const [matchList, setMatchList] = useState([] as IMatch[])
   useEffect(() => {
     get(`${baseURL}/match/hot-matches`, {
-      limit: 10,
+      limit: 50,
       page: 1,
     }).then((response) => {
-      console.log('hot-matches :>> ', response.data)
       setMatchList(response.data.hotMatches)
     })
   }, [])
@@ -28,7 +28,7 @@ export default function Match() {
     })
   }, [])
   const addBet = useAddBetCallback()
-  const betHandle = (item: number) => {
+  const betHandle = (item: IMatch) => {
     addBet(item)
   }
 
@@ -58,47 +58,56 @@ export default function Match() {
           <div className="card-list" id="scroll-match">
             {matchList.length > 0 ? (
               <>
-                {matchList.map((match: IMatch) => (
-                  <div className="match-item">
-                    <div className="inner">
-                      <div className="d-flex justify-content-between align-items-center">
-                        <div className="d-flex flex-column">
-                          <span className="fs-16 font-w600"> {timestampToTime(match.matchTime)} </span>
-                          <span className="fs-12 text-3"> {timestampToDate(match.matchTime)} </span>
-                        </div>
-                        <div className="flags">
-                          <div className="flags-item">
-                            <img src="images/flags/en.svg" alt="eng" />
+                {matchList.map((match: IMatch) => {
+                  if (
+                    parseInt(match.matchTime) > new Date().getTime() / 1000 - 1000
+                    // &&
+                    // parseInt(match.matchTime) < new Date().getTime() / 1000 + 66400
+                  ) {
+                    return (
+                      <div className="match-item" key={match.id}>
+                        <div className="inner">
+                          <div className="d-flex justify-content-between align-items-center">
+                            <div className="d-flex flex-column">
+                              <span className="fs-16 font-w600"> {timestampToTime(match.matchTime)} </span>
+                              <span className="fs-12 text-3"> {timestampToDate(match.matchTime)} </span>
+                            </div>
+                            <div className="flags">
+                              <div className="flags-item">
+                                <img src={getFlag(match.homeTeamCode)} alt={match.homeTeamName} />
+                              </div>
+                              <div className="flags-item">
+                                <img src={getFlag(match.awayTeamCode)} alt={match.awayTeamName} />
+                              </div>
+                            </div>
                           </div>
-                          <div className="flags-item">
-                            <img src="images/flags/ee.svg" alt="eng" />
+                          <div>
+                            <div className="d-flex justify-content-between align-items-center">
+                              <span className="fs-24 font-w600"> {match.homeTeamName} </span>
+                              <span className="fs-24 font-w600"> --</span>
+                            </div>
+                            <div className="d-flex justify-content-between align-items-center">
+                              <span className="fs-24 text-2"> {match.awayTeamName} </span>
+                              <span className="fs-24 text-2"> --</span>
+                            </div>
+                          </div>
+                          <div className="bottom">
+                            <div className="bottom-item green" onClick={() => betHandle(match)} role="presentation">
+                              2.12
+                            </div>
+                            <div className="bottom-item" onClick={() => betHandle(match)} role="presentation">
+                              5.12
+                            </div>
+                            <div className="bottom-item red" onClick={() => betHandle(match)} role="presentation">
+                              1.12
+                            </div>
                           </div>
                         </div>
                       </div>
-                      <div>
-                        <div className="d-flex justify-content-between align-items-center">
-                          <span className="fs-24 font-w600"> {match.homeTeamName} </span>
-                          <span className="fs-24 font-w600"> {match.homeScore} </span>
-                        </div>
-                        <div className="d-flex justify-content-between align-items-center">
-                          <span className="fs-24 text-2"> {match.awayTeamName} </span>
-                          <span className="fs-24 text-2"> {match.awayScore} </span>
-                        </div>
-                      </div>
-                      <div className="bottom">
-                        <div className="bottom-item green" onClick={() => betHandle(match.id)} role="presentation">
-                          1.12
-                        </div>
-                        <div className="bottom-item" onClick={() => betHandle(match.id)} role="presentation">
-                          1.12
-                        </div>
-                        <div className="bottom-item red" onClick={() => betHandle(match.id)} role="presentation">
-                          1.12
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
+                    )
+                  }
+                  return <></>
+                })}
               </>
             ) : (
               <></>

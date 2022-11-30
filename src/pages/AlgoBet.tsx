@@ -12,13 +12,26 @@ import MatchComing from 'components/MatchComing'
 import CTA from 'components/CTA'
 import Featured from 'components/Featured'
 import LeaderBoard from 'components/LeaderBoard'
+import { IMatch } from 'interfaces/components/IMatch'
+import { get } from 'services/api'
+import { getFlag } from 'utils/flag'
+import { timestampToDate, timestampToTime } from 'utils/time'
 
 // Import Swiper styles
 
 const AlgoBet = () => {
   const [tab, setTab] = useState('All Matches')
-  const matchList = [{ id: 3 }, { id: 4 }, { id: 5 }]
-
+  // const matchList = [{ id: 3 }, { id: 4 }, { id: 5 }]
+  const [matchList, setMatchList] = useState([] as IMatch[])
+  useEffect(() => {
+    get(`/match`, {
+      limit: 30,
+      page: 1,
+    }).then((response) => {
+      console.log('alll-matches  :>> ', response.data)
+      setMatchList(response.data.matches)
+    })
+  }, [])
   return (
     <div className="algoBet">
       <Match />
@@ -63,96 +76,65 @@ const AlgoBet = () => {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>
-                    <div>08:00</div>
-                  </td>
-                  <td>
-                    <div>
-                      <div className="soon">
-                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <circle opacity="0.2" cx="6" cy="6" r="5.5" stroke="#F74141" />
-                          <circle cx="6" cy="6" r="3" fill="#F74141" />
-                        </svg>
-                        75:15
+                {matchList.map((match: IMatch) => (
+                  <tr key={match.id}>
+                    <td>
+                      <div className="time">
+                        <span className="fs-16 font-w600"> {timestampToTime(match.matchTime)} </span>
+                        <br />
+                        <span className="fs-12 d-block"> {timestampToDate(match.matchTime)} </span>
                       </div>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="match-rs">
-                      Manchester United
-                      <img src="/images/team/mu.svg" alt="mu" />
-                      <div className="match-score">3:3</div>
-                      <img src="/images/team/tot.svg" alt="mu" />
-                      Tottenham Hotspur
-                    </div>
-                  </td>
-                  <td>
-                    <div>
-                      <div className="bet-box">1.12</div>
-                    </div>
-                  </td>
-                  <td>
-                    <div>
-                      <div className="bet-box">2.47</div>
-                    </div>
-                  </td>
-                  <td>
-                    <div>
-                      <div className="bet-box">10.55</div>
-                    </div>
-                  </td>
-                  <td>
-                    <div>
-                      <img src="/images/insert_chart.svg" alt="insert_chart" />
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <div>08:00</div>
-                  </td>
-                  <td>
-                    <div>
-                      <div className="soon">
-                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <circle opacity="0.2" cx="6" cy="6" r="5.5" stroke="#F74141" />
-                          <circle cx="6" cy="6" r="3" fill="#F74141" />
-                        </svg>
-                        75:15
+                    </td>
+                    <td>
+                      {/* <div>
+                        <div className="soon">
+                          <svg
+                            width="12"
+                            height="12"
+                            viewBox="0 0 12 12"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <circle opacity="0.2" cx="6" cy="6" r="5.5" stroke="#F74141" />
+                            <circle cx="6" cy="6" r="3" fill="#F74141" />
+                          </svg>
+                          75:15
+                        </div>
+                      </div> */}
+                    </td>
+                    <td>
+                      <div className="match-rs">
+                        <span> {match.homeTeamName}</span>
+                        <img src={getFlag(match.homeTeamCode)} alt={match.homeTeamName} />
+                        <div className="match-score">
+                          {match.homeScore} : {match.awayScore}
+                        </div>
+                        <img src={getFlag(match.awayTeamCode)} alt={match.awayTeamName} />
+                        <span> {match.awayTeamName}</span>
                       </div>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="match-rs">
-                      Manchester United
-                      <img src="/images/team/mu.svg" alt="mu" />
-                      <div className="match-score">3:3</div>
-                      <img src="/images/team/tot.svg" alt="mu" />
-                      Tottenham Hotspur
-                    </div>
-                  </td>
-                  <td>
-                    <div>
-                      <div className="bet-box">1.12</div>
-                    </div>
-                  </td>
-                  <td>
-                    <div>
-                      <div className="bet-box">2.47</div>
-                    </div>
-                  </td>
-                  <td>
-                    <div>
-                      <div className="bet-box">10.55</div>
-                    </div>
-                  </td>
-                  <td>
-                    <div>
-                      <img src="/images/insert_chart.svg" alt="insert_chart" />
-                    </div>
-                  </td>
-                </tr>
+                    </td>
+                    <td>
+                      <div>
+                        <div className="bet-box">1.12</div>
+                      </div>
+                    </td>
+                    <td>
+                      <div>
+                        <div className="bet-box">2.47</div>
+                      </div>
+                    </td>
+                    <td>
+                      <div>
+                        <div className="bet-box">10.55</div>
+                      </div>
+                    </td>
+                    <td>
+                      <div>
+                        <img src="/images/insert_chart.svg" alt="insert_chart" />
+                      </div>
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           ) : (
@@ -181,98 +163,59 @@ const AlgoBet = () => {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>
-                    <div>08:00</div>
-                  </td>
-                  <td>
-                    <div>
-                      <div className="soon">
-                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <circle opacity="0.2" cx="6" cy="6" r="5.5" stroke="#F74141" />
-                          <circle cx="6" cy="6" r="3" fill="#F74141" />
-                        </svg>
-                        75:15
+                {[].map((match: IMatch) => (
+                  <tr key={match.id}>
+                    <td>
+                      <div>08:00</div>
+                    </td>
+                    <td>
+                      <div>
+                        <div className="soon">
+                          <svg
+                            width="12"
+                            height="12"
+                            viewBox="0 0 12 12"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <circle opacity="0.2" cx="6" cy="6" r="5.5" stroke="#F74141" />
+                            <circle cx="6" cy="6" r="3" fill="#F74141" />
+                          </svg>
+                          75:15
+                        </div>
                       </div>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="match-rs">
-                      Manchester United
-                      <img src="/images/team/mu.svg" alt="mu" />
-                      <div className="match-score">3:3</div>
-                      <img src="/images/team/tot.svg" alt="mu" />
-                      Tottenham Hotspur
-                    </div>
-                  </td>
-                  <td>
-                    <div>
-                      <span className="text-odd">1:</span>
-                      &nbsp; 2.47
-                    </div>
-                  </td>
-                  <td>
-                    <div className="text-win">WIN</div>
-                  </td>
-                  <td>
-                    <div>
-                      1000
-                      <img className="icon-money" src="/images/tether-icon.svg" alt="tether" />
-                    </div>
-                  </td>
-                  <td>
-                    <div>
-                      2470
-                      <img className="icon-money" src="/images/tether-icon.svg" alt="tether" />
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <div>08:00</div>
-                  </td>
-                  <td>
-                    <div>
-                      <div className="soon">
-                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <circle opacity="0.2" cx="6" cy="6" r="5.5" stroke="#F74141" />
-                          <circle cx="6" cy="6" r="3" fill="#F74141" />
-                        </svg>
-                        75:15
+                    </td>
+                    <td>
+                      <div className="match-rs">
+                        Manchester United
+                        <img src="/images/team/mu.svg" alt="mu" />
+                        <div className="match-score">3:3</div>
+                        <img src="/images/team/tot.svg" alt="mu" />
+                        Tottenham Hotspur
                       </div>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="match-rs">
-                      Manchester United
-                      <img src="/images/team/mu.svg" alt="mu" />
-                      <div className="match-score">3:3</div>
-                      <img src="/images/team/tot.svg" alt="mu" />
-                      Tottenham Hotspur
-                    </div>
-                  </td>
-                  <td>
-                    <div>
-                      <span className="text-odd">1:</span>
-                      &nbsp; 2.47
-                    </div>
-                  </td>
-                  <td>
-                    <div className="text-lose">LOSE</div>
-                  </td>
-                  <td>
-                    <div>
-                      1000
-                      <img className="icon-money" src="/images/tether-icon.svg" alt="tether" />
-                    </div>
-                  </td>
-                  <td>
-                    <div>
-                      -
-                      <img className="icon-money" src="/images/tether-icon.svg" alt="tether" />
-                    </div>
-                  </td>
-                </tr>
+                    </td>
+                    <td>
+                      <div>
+                        <div className="bet-box">1.12</div>
+                      </div>
+                    </td>
+                    <td>
+                      <div>
+                        <div className="bet-box">2.47</div>
+                      </div>
+                    </td>
+                    <td>
+                      <div>
+                        <div className="bet-box">10.55</div>
+                      </div>
+                    </td>
+                    <td>
+                      <div>
+                        <img src="/images/insert_chart.svg" alt="insert_chart" />
+                      </div>
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           )}

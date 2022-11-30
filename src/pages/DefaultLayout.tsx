@@ -19,6 +19,7 @@ import NewsPageDetail from './NewsPageDetail'
 import NewsPageCategory from './NewsPageCategory';
 import MarketplaceDetail from './MarketplaceDetail';
 import AlgoBet from './AlgoBet';
+import PromotionPageDetail from './PromotionPageDetail';
 
 const ParamNetwork = {
   BSCMAINNET: {
@@ -169,6 +170,7 @@ const DefaultLayout = () => {
           <Route path="/news" element={<NewsPage />} />
           <Route path="/news/:id" element={<NewsPageDetail />} />
           <Route path="/news/category/:id" element={<NewsPageCategory />} />
+          <Route path="/promotions/:id" element={<PromotionPageDetail />} />
 
           <Route path="*" element={<Navigate replace to="/" />} />
         </Routes>

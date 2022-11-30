@@ -6,7 +6,7 @@ export default function Item({ data }: any) {
   // console.log(data, 'data')
   const deleteBet = useUpdateBetCallback()
   const betHandle = () => {
-    deleteBet(data.id)
+    // deleteBet(data.id)
   }
   return (
     <ul className="item-list">
@@ -14,7 +14,7 @@ export default function Item({ data }: any) {
         <div className="d-flex justify-content-between align-items-center">
           <div>
             <span>Full time result</span>- <span className="font-w600">{data.id}</span>
-            <p className="text-3">England - USA</p>
+            <p className="text-3">{data.homeTeamName} - {data.awayTeamName}</p>
           </div>
           <span className="fs-20 font-w600">1.12</span>
         </div>

@@ -90,7 +90,7 @@
       left: -75%;
       z-index: 2;
       display: block;
-      content: '';
+      content: "";
       width: 50%;
       height: 100%;
       background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
@@ -158,12 +158,22 @@
 
 .match-rs {
   display: flex;
+  justify-content: center;
+  align-items: center;
   img {
     width: 24px;
     height: 24px;
     border-radius: 100px;
     margin-left: 8px;
     margin-right: 8px;
+    object-fit: cover;
+  }
+  span {
+    display: block;
+    flex: 1;
+    &:first-child{
+      text-align: end;
+    }
   }
 }
 
@@ -189,6 +199,9 @@
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+    .time{
+      flex-direction: column;
     }
   }
 }
