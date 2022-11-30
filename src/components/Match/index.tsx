@@ -14,7 +14,6 @@ export default function Match() {
       limit: 50,
       page: 1,
     }).then((response) => {
-      console.log('hot-matches :>> ', response.data)
       setMatchList(response.data.hotMatches)
     })
   }, [])
