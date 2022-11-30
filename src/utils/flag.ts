@@ -51,7 +51,7 @@ export const getFlag = (flag: string) => {
     case 'MAR':
       return '/images/flags/ma.svg'
       break
-    case 'CR0':
+    case 'CRO':
       return '/images/flags/hr.svg'
       break
       

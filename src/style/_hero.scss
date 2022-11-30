@@ -1,11 +1,11 @@
 .hero {
   height: 75vh;
-  min-height: 700px;
+  min-height: 800px;
   max-height: 900px;
   position: relative;
   .swiper {
     height: 75vh;
-    min-height: 700px;
+    min-height: 800px;
     max-height: 900px;
   }
   @include mw-768 {
