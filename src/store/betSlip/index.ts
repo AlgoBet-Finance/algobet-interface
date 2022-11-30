@@ -1,13 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-
-export interface SerializedBet {
-  id: number
-  status?: number
-}
+import { IMatch } from 'interfaces/components/IMatch'
 
 export interface BetSlipState {
   count: number
-  listBet: SerializedBet[]
+  listBet: IMatch[]
 }
 
 export const initialState: BetSlipState = {

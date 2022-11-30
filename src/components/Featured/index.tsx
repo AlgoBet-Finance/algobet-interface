@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import $ from 'jquery'
 import { get } from 'services/api'
-import { timestampToTime } from 'utils/time'
+import { timestampFormat, timestampToTime } from 'utils/time'
 import { Link } from 'react-router-dom'
 
 export default function Featured({ isOnHomePage }: { isOnHomePage: any }) {
@@ -44,7 +44,7 @@ export default function Featured({ isOnHomePage }: { isOnHomePage: any }) {
               <div className="group-view-btn">
                 {isOnHomePage ? (
                   <button type="button" className="btn-view btn-view-all">
-                    <a href="/">VIEW ALL</a>
+                    <a href="/promotions">VIEW ALL</a>
                   </button>
                 ) : (
                   <>
@@ -71,10 +71,10 @@ export default function Featured({ isOnHomePage }: { isOnHomePage: any }) {
                     <div className="featured-item">
                       <div className="hover-img ">
                         <figure>
-                          <img src="/images/pay/promotion-banner.png" alt="banner" />
+                          <img src={item.urlToImage} alt="banner" />
                         </figure>
                       </div>
-                      <p className="text-3">End at {item.endDate} </p>
+                      <p className="text-3">End at {timestampFormat(item.endDate)} </p>
                       <h4 className="fs-16 font-w600">{item.title}</h4>
                     </div>
                   </Link>

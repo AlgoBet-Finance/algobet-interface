@@ -356,3 +356,15 @@
   border: 2px solid #ffffff;
   color: #fff;
 }
+.promotionDetail {
+  margin-top: 100px;
+  .img {
+    margin-bottom: 24px;
+    img {
+      width: 100%;
+    }
+  }
+  p{
+    white-space: pre-wrap;
+  }
+}

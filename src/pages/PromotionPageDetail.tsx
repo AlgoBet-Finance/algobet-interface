@@ -7,6 +7,8 @@ import { Keyboard, Scrollbar, Navigation, Pagination } from 'swiper'
 
 import { get } from 'services/api'
 import { useParams } from 'react-router-dom'
+import Featured from 'components/Featured'
+import { timestampFormat } from 'utils/time'
 
 // Import Swiper styles
 
@@ -22,8 +24,8 @@ const PromotionPageDetail = () => {
     })
   }, [params.id])
   return (
-    <>
-      <div className="hero">
+    <div className="promotionDetail">
+      {/* <div className="hero">
         <Swiper
           slidesPerView={1}
           centeredSlides={false}
@@ -66,14 +68,19 @@ const PromotionPageDetail = () => {
             </div>
           </SwiperSlide>
         </Swiper>
-      </div>
+      </div> */}
       <div className="container">
         <div className="mt-5 mb-5">
+          <div className="img">
+            <img src={promotionDetail.urlToImage} alt="" />
+          </div>
           <h2>{promotionDetail.title}</h2>
-          <p>{promotionDetail.content}</p>
+          <p className="mb-5"> {timestampFormat(promotionDetail.endDate)}</p>
+          <p dangerouslySetInnerHTML={{ __html: promotionDetail.content }} />
         </div>
+        <Featured isOnHomePage={false} />
       </div>
-    </>
+    </div>
   )
 }
 export default PromotionPageDetail

@@ -88,7 +88,11 @@ const Promotions = () => {
               <div key={item} className="col-3 featured-item-div">
                 <Link to={{ pathname: `/promotions/${item.id}` }}>
                   <div className="featured-item">
-                    <img src="/images/pay/promotion-banner.png" alt="arrow-right" />
+                    <div className="hover-img ">
+                      <figure>
+                        <img src={item.urlToImage} alt="arrow-right" />{' '}
+                      </figure>
+                    </div>
                     <p className="text-3">End at {item.endDate}</p>
                     <h4 className="fs-16 font-w600">{item.title}</h4>
                   </div>

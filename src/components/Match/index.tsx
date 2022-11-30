@@ -29,7 +29,7 @@ export default function Match() {
     })
   }, [])
   const addBet = useAddBetCallback()
-  const betHandle = (item: number) => {
+  const betHandle = (item: IMatch) => {
     addBet(item)
   }
 
@@ -93,13 +93,13 @@ export default function Match() {
                             </div>
                           </div>
                           <div className="bottom">
-                            <div className="bottom-item green" onClick={() => betHandle(match.id)} role="presentation">
-                              1.12
+                            <div className="bottom-item green" onClick={() => betHandle(match)} role="presentation">
+                              2.12
                             </div>
-                            <div className="bottom-item" onClick={() => betHandle(match.id)} role="presentation">
-                              1.12
+                            <div className="bottom-item" onClick={() => betHandle(match)} role="presentation">
+                              5.12
                             </div>
-                            <div className="bottom-item red" onClick={() => betHandle(match.id)} role="presentation">
+                            <div className="bottom-item red" onClick={() => betHandle(match)} role="presentation">
                               1.12
                             </div>
                           </div>

@@ -41,12 +41,12 @@ const Home = () => {
         >
           <SwiperSlide>
             <div className="hero-item">
-              <img src="./images/promotion1.jpg" alt="" />
+              <img src="https://algobet-sports.com/images/2.jpeg" alt="" />
             </div>
           </SwiperSlide>
           <SwiperSlide>
             <div className="hero-item">
-              <img src="./images/promotion2.jpg" alt="" />
+              <img src="https://algobet-sports.com/images/3.jpeg" alt="" />
             </div>
           </SwiperSlide>
         </Swiper>
